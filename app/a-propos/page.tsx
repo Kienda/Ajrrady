@@ -1,0 +1,122 @@
+import type { Metadata } from "next";
+import { PageHero } from "@/components/PageHero";
+import { SectionHeading } from "@/components/SectionHeading";
+import { createMetadata } from "@/lib/metadata";
+import { siteInfo, values } from "@/data/site";
+
+export const metadata: Metadata = createMetadata({
+  title: "À Propos",
+  path: "/a-propos",
+});
+
+export default function AboutPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="À Propos"
+        title="AJRRADY"
+        description="Une association communautaire à but non lucratif mobilisée pour le développement de Youkounkoun."
+      />
+
+      <section className="py-16">
+        <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-10 lg:grid-cols-[1fr_0.8fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Présentation"
+              title="Une organisation au service de Youkounkoun"
+              description={`${siteInfo.fullName} rassemble les ressortissants, résidents et amis de Youkounkoun autour d'initiatives utiles au développement local.`}
+            />
+            <div className="space-y-5 text-lg leading-8 text-slate-700">
+              <p>
+                AJRRADY accompagne les dynamiques communautaires dans les domaines de
+                l'éducation, de la culture, du sport, de la cohésion sociale, de
+                l'environnement et du développement durable.
+              </p>
+              <p>
+                L'association renforce les liens de solidarité entre les ressortissants,
+                promeut les valeurs de paix et de vivre-ensemble, et soutient les
+                initiatives engagées en faveur des populations de Youkounkoun.
+              </p>
+            </div>
+          </div>
+          <div className="rounded-lg border-l-4 border-ajGreen bg-ajLight p-7">
+            <dl className="space-y-5">
+              <InfoTerm label="Nature juridique" value={siteInfo.legalNature} />
+              <InfoTerm label="Siège social" value={siteInfo.headOffice} />
+              <InfoTerm label="Zone d’intervention" value={siteInfo.interventionArea} />
+              <InfoTerm label="Devise" value={siteInfo.slogan} />
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ajLight py-16">
+        <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
+          <SectionHeading eyebrow="Historique" title="Une structure fédératrice" />
+          <div className="max-w-4xl space-y-5 text-lg leading-8 text-slate-700">
+            <p>
+              AJRRADY est née de la volonté des fils, filles, résidents et amis de
+              Youkounkoun de contribuer activement au développement socio-économique,
+              culturel et éducatif de leur localité.
+            </p>
+            <p>
+              Face aux défis liés à l'éducation, aux infrastructures communautaires,
+              à la promotion culturelle, à l'insertion des jeunes et à la cohésion
+              sociale, plusieurs ressortissants se sont regroupés au sein d'une
+              structure capable de mobiliser les compétences, les ressources et les
+              initiatives au service du développement local.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-8 lg:grid-cols-2">
+          <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
+            <SectionHeading eyebrow="Mission" title="Mobiliser pour développer" />
+            <p className="text-lg leading-8 text-slate-700">
+              Mobiliser les ressortissants, résidents et amis de Youkounkoun autour
+              d'initiatives favorisant le développement communautaire, l’éducation,
+              la formation, la promotion culturelle, l’agriculture, l’élevage, le
+              sport, l’entrepreneuriat des jeunes, la cohésion sociale, la protection
+              de l’environnement, la paix et l’intégration sous-régionale.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
+            <SectionHeading eyebrow="Vision" title="Une communauté forte" />
+            <p className="text-lg leading-8 text-slate-700">
+              Faire de Youkounkoun une communauté unie, dynamique, solidaire et
+              prospère, portée par une jeunesse responsable et engagée dans le
+              développement durable.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="bg-ajLight py-16">
+        <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
+          <SectionHeading eyebrow="Valeurs" title="Les valeurs de l'association" />
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {values.map((value) => (
+              <li
+                key={value}
+                className="flex min-h-[90px] items-center justify-center rounded-lg border border-slate-200 bg-white p-4 text-center font-extrabold text-ajPurple"
+              >
+                {value}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function InfoTerm({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="text-sm font-black uppercase text-ajPurple">{label}</dt>
+      <dd className="mt-1 leading-7 text-slate-700">{value}</dd>
+    </div>
+  );
+}

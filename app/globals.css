@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --aj-purple: #6a0dad;
+  --aj-green: #16a34a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.footer-link {
+  text-decoration: none;
+  transition: opacity 160ms ease, text-decoration-color 160ms ease;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.domain-card::after {
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 18px auto 0;
+  background: var(--aj-purple);
+  content: "";
+}
