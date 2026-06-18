@@ -4,9 +4,9 @@ import { footerActions, navItems, siteInfo, socialLinks } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="border-t-4 border-ajGreen bg-gradient-to-br from-ajPurple to-[#4b087e] text-white">
-      <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-8 py-11 md:grid-cols-2 lg:grid-cols-[1.25fr_0.9fr_1fr_1fr_0.8fr]">
-        <div>
+    <footer className="bg-gradient-to-br from-ajPurple to-[#4b087e] text-white">
+      <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] justify-items-center gap-8 py-11 text-center md:grid-cols-2 md:justify-items-stretch md:text-left lg:grid-cols-[1.25fr_0.9fr_1fr_1fr_0.8fr]">
+        <div className="flex max-w-md flex-col items-center md:items-start">
           <Image
             src="/LOGO.png"
             alt="Logo AJRRADY"
@@ -15,7 +15,9 @@ export function Footer() {
             className="mb-4 h-16 w-16 object-contain"
           />
           <p className="text-[15px] leading-7">{siteInfo.fullName}</p>
-          <p className="mt-3 text-[15px] font-semibold leading-7">{siteInfo.slogan}</p>
+          <p className="mt-3 text-[15px] font-semibold leading-7">
+            {siteInfo.slogan}
+          </p>
         </div>
 
         <FooterColumn title="Liens rapides">
@@ -36,7 +38,10 @@ export function Footer() {
 
         <FooterColumn title="Contact">
           <li>
-            <a className="footer-link" href={`tel:${siteInfo.phone.replaceAll(" ", "")}`}>
+            <a
+              className="footer-link"
+              href={`tel:${siteInfo.phone.replaceAll(" ", "")}`}
+            >
               {siteInfo.phone}
             </a>
           </li>
@@ -78,8 +83,10 @@ function FooterColumn({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <h2 className="mb-4 text-sm font-black uppercase tracking-normal">{title}</h2>
+    <div className="w-full max-w-xs md:max-w-none">
+      <h2 className="mb-4 text-sm font-black uppercase tracking-normal">
+        {title}
+      </h2>
       <ul className="space-y-2 text-[15px] leading-6 text-white/95">{children}</ul>
     </div>
   );
