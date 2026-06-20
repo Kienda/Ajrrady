@@ -19,7 +19,16 @@ export const siteInfo = {
 export const seo = {
   title: "AJRRADY | Association pour le Développement de Youkounkoun",
   description:
-    "AJRRADY est une organisation communautaire engagée dans le développement durable de Youkounkoun à travers l’éducation, la culture, le sport, l’environnement, la solidarité et la diaspora.",
+    "AJRRADY est une association engagée dans l’éducation, la culture, le sport, la santé, l’environnement, la solidarité et le développement durable de Youkounkoun.",
+  keywords: [
+    "santé communautaire",
+    "santé publique",
+    "prévention sanitaire",
+    "développement local",
+    "association guinéenne",
+    "Youkounkoun",
+    "AJRRADY",
+  ],
 };
 
 export const navItems: NavItem[] = [
@@ -49,6 +58,12 @@ export const homeDomains: CardItem[] = [
     icon: "sport",
   },
   {
+    title: "Santé",
+    description:
+      "Promouvoir la santé communautaire, la prévention, l’accès aux soins et les actions de sensibilisation au bénéfice des populations de Youkounkoun.",
+    icon: "health",
+  },
+  {
     title: "Environnement",
     description: "Agir pour un cadre de vie propre et durable.",
     icon: "environment",
@@ -66,15 +81,6 @@ export const homeDomains: CardItem[] = [
 ];
 
 export const actionDomains: CardItem[] = [
-  {
-    title: "Développement communautaire",
-    icon: "community",
-    items: [
-      "Appui aux infrastructures communautaires",
-      "Mobilisation citoyenne",
-      "Actions de solidarité",
-    ],
-  },
   {
     title: "Éducation",
     icon: "education",
@@ -104,12 +110,17 @@ export const actionDomains: CardItem[] = [
     ],
   },
   {
-    title: "Cohésion sociale",
-    icon: "solidarity",
+    title: "Santé",
+    icon: "health",
+    description:
+      "AJRRADY soutient les initiatives de santé publique à travers la sensibilisation, la prévention, les campagnes médicales, l’accompagnement des populations vulnérables et la promotion du bien-être communautaire.",
     items: [
-      "Promotion du vivre-ensemble",
-      "Prévention des conflits",
-      "Renforcement du dialogue communautaire",
+      "Campagnes de sensibilisation",
+      "Journées de consultation médicale",
+      "Prévention des maladies",
+      "Don de médicaments et matériel médical",
+      "Soutien aux structures sanitaires locales",
+      "Éducation à l’hygiène et à la santé",
     ],
   },
   {
@@ -123,6 +134,25 @@ export const actionDomains: CardItem[] = [
       "Lutte contre les feux de brousse",
       "Protection des ressources naturelles",
       "Promotion des bonnes pratiques environnementales",
+    ],
+  },
+  {
+    title: "Solidarité",
+    icon: "solidarity",
+    items: [
+      "Actions de solidarité",
+      "Promotion du vivre-ensemble",
+      "Prévention des conflits",
+      "Renforcement du dialogue communautaire",
+    ],
+  },
+  {
+    title: "Diaspora",
+    icon: "diaspora",
+    items: [
+      "Mobilisation des ressortissants",
+      "Contribution au développement local",
+      "Appui aux initiatives communautaires",
     ],
   },
 ];
@@ -208,6 +238,7 @@ export const footerActions = [
   "Éducation",
   "Culture",
   "Sport",
+  "Santé",
   "Environnement",
   "Solidarité",
   "Diaspora",

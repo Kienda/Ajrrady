@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+      },
       colors: {
         ajPurple: "#6A0DAD",
         ajGreen: "#16A34A",
@@ -15,6 +18,10 @@ module.exports = {
       },
       boxShadow: {
         soft: "0 18px 45px rgba(31, 41, 55, 0.10)",
+        card: "0 4px 24px rgba(31, 41, 55, 0.07)",
+      },
+      letterSpacing: {
+        eyebrow: "0.14em",
       },
     },
   },

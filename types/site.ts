@@ -10,7 +10,8 @@ export type IconName =
   | "environment"
   | "solidarity"
   | "diaspora"
-  | "community";
+  | "community"
+  | "health";
 
 export type CardItem = {
   title: string;

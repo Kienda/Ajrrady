@@ -12,15 +12,17 @@ export function SectionHeading({
   centered = false,
 }: SectionHeadingProps) {
   return (
-    <div className={`mb-9 max-w-3xl ${centered ? "mx-auto text-center" : ""}`}>
+    <div className={`mb-10 max-w-3xl ${centered ? "mx-auto text-center" : ""}`}>
       {eyebrow ? (
-        <p className="mb-2 text-xs font-black uppercase text-ajGreen">{eyebrow}</p>
+        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ajGreen">
+          {eyebrow}
+        </p>
       ) : null}
-      <h2 className="text-3xl font-black leading-tight text-ajPurple md:text-4xl">
+      <h2 className="text-[2rem] font-bold leading-[1.15] tracking-tight text-ajPurple md:text-[2.6rem]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-lg leading-8 text-slate-700">{description}</p>
+        <p className="mt-5 text-lg leading-[1.8] text-slate-600">{description}</p>
       ) : null}
     </div>
   );

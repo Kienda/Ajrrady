@@ -4,6 +4,7 @@ import {
   GraduationCap,
   HandHeart,
   HeartHandshake,
+  HeartPulse,
   Landmark,
   Leaf,
   Theater,
@@ -19,6 +20,7 @@ const icons = {
   solidarity: HeartHandshake,
   diaspora: Globe2,
   community: Landmark,
+  health: HeartPulse,
 } satisfies Record<IconName, typeof BookOpen>;
 
 type IconBadgeProps = {
@@ -31,9 +33,9 @@ export function IconBadge({ name, className = "" }: IconBadgeProps) {
 
   return (
     <span
-      className={`inline-flex h-12 w-12 items-center justify-center text-ajGreen ${className}`}
+      className={`inline-flex h-14 w-14 items-center justify-center text-ajGreen ${className}`}
     >
-      <Icon aria-hidden="true" className="h-10 w-10 stroke-[1.8]" />
+      <Icon aria-hidden="true" className="h-9 w-9 stroke-[1.5]" />
     </span>
   );
 }

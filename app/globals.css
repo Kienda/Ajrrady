@@ -20,7 +20,11 @@ body {
   margin: 0;
   background: #ffffff;
   color: #1f2937;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 a {
@@ -35,20 +39,22 @@ textarea {
 
 .footer-link {
   text-decoration: none;
-  transition: opacity 160ms ease, text-decoration-color 160ms ease;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
 .footer-link:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+  opacity: 0.85;
 }
 
 .domain-card::after {
   display: block;
-  width: 48px;
-  height: 3px;
-  margin: 18px auto 0;
+  width: 36px;
+  height: 2px;
+  margin: 16px auto 0;
   background: var(--aj-purple);
+  border-radius: 2px;
   content: "";
 }

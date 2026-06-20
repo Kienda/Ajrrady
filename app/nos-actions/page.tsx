@@ -16,7 +16,7 @@ export default function ActionsPage() {
       <PageHero
         eyebrow="Nos Actions"
         title="Domaines d’intervention"
-        description="Six axes structurent l'engagement communautaire de l'AJRRADY à Youkounkoun."
+        description="Les programmes stratégiques structurent l'engagement communautaire de l'AJRRADY à Youkounkoun."
       />
       <section className="bg-ajLight py-16">
         <div className="mx-auto w-[min(1160px,calc(100%-32px))]">

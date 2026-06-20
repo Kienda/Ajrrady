@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { seo, siteInfo } from "@/data/site";
 import "./globals.css";
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteInfo.url),
@@ -11,6 +19,7 @@ export const metadata: Metadata = {
     template: "%s | AJRRADY",
   },
   description: seo.description,
+  keywords: seo.keywords,
   icons: {
     icon: "/Favicon.png",
     shortcut: "/Favicon.png",
@@ -46,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={jakarta.variable}>
       <body>
         <Header />
         <main>{children}</main>

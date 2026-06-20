@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header className="relative z-50 border-b border-slate-100 bg-white">
-      <div className="mx-auto flex min-h-[74px] w-[min(1160px,calc(100%-32px))] items-center justify-between gap-6">
+      <div className="mx-auto flex min-h-[80px] w-[min(1160px,calc(100%-32px))] items-center justify-between gap-6">
         <Link
           href="/"
           className="flex min-w-[230px] items-center gap-3"
@@ -29,10 +29,10 @@ export function Header() {
             className="h-14 w-14 object-contain"
           />
           <span className="leading-none">
-            <span className="block text-[28px] font-black text-ajPurple">
+            <span className="block text-[26px] font-extrabold tracking-tight text-ajPurple">
               AJRRADY
             </span>
-            <span className="block max-w-[170px] text-[8px] font-bold leading-tight text-ajPurple">
+            <span className="block max-w-[170px] text-[9px] font-semibold leading-tight text-ajPurple/70">
               {siteInfo.fullName}
             </span>
           </span>
@@ -49,7 +49,7 @@ export function Header() {
         </button>
 
         <nav
-          className={`absolute left-4 right-4 top-full rounded-lg border border-slate-100 bg-white p-2 shadow-soft lg:static lg:flex lg:items-center lg:gap-6 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none ${
+          className={`absolute left-4 right-4 top-full rounded-xl border border-slate-100 bg-white p-3 shadow-soft lg:static lg:flex lg:items-center lg:gap-1 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none ${
             open ? "block" : "hidden lg:flex"
           }`}
           aria-label="Navigation principale"
@@ -61,7 +61,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex min-h-11 items-center rounded-md px-3 text-xs font-extrabold uppercase text-ajPurple transition hover:bg-ajLight hover:text-ajGreen lg:min-h-[74px] lg:border-b-[3px] lg:border-transparent lg:px-0 lg:hover:bg-transparent ${
+                className={`flex min-h-11 items-center rounded-lg px-3.5 text-[13.5px] font-semibold tracking-wide text-ajPurple transition-colors hover:text-ajGreen lg:min-h-[80px] lg:rounded-none lg:border-b-2 lg:border-transparent lg:px-2.5 lg:hover:border-ajGreen/40 lg:hover:text-ajGreen ${
                   active ? "text-ajGreen lg:border-ajGreen" : ""
                 }`}
                 onClick={() => setOpen(false)}
@@ -72,7 +72,7 @@ export function Header() {
           })}
           <Link
             href="/adhesion"
-            className="mt-2 flex min-h-11 items-center justify-center rounded-lg bg-ajGreen px-5 text-xs font-extrabold uppercase text-white transition hover:bg-ajPurple lg:mt-0"
+            className="mt-2 flex min-h-11 items-center justify-center rounded-xl bg-ajGreen px-5 text-[13.5px] font-semibold tracking-wide text-white transition-colors hover:bg-ajPurple lg:ml-4 lg:mt-0"
             onClick={() => setOpen(false)}
           >
             Adhérer

@@ -17,6 +17,7 @@ export function createMetadata({
   return {
     title,
     description,
+    keywords: seo.keywords,
     alternates: {
       canonical,
     },

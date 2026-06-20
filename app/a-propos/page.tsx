@@ -28,9 +28,9 @@ export default function AboutPage() {
             />
             <div className="space-y-5 text-lg leading-8 text-slate-700">
               <p>
-                AJRRADY accompagne les dynamiques communautaires dans les domaines de
-                l'éducation, de la culture, du sport, de la cohésion sociale, de
-                l'environnement et du développement durable.
+                AJRRADY accompagne les dynamiques communautaires dans les domaines
+                de l'éducation, de la culture, du sport, de la santé, de la cohésion
+                sociale, de l'environnement et du développement durable.
               </p>
               <p>
                 L'association renforce les liens de solidarité entre les ressortissants,
@@ -75,11 +75,10 @@ export default function AboutPage() {
           <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
             <SectionHeading eyebrow="Mission" title="Mobiliser pour développer" />
             <p className="text-lg leading-8 text-slate-700">
-              Mobiliser les ressortissants, résidents et amis de Youkounkoun autour
-              d'initiatives favorisant le développement communautaire, l’éducation,
-              la formation, la promotion culturelle, l’agriculture, l’élevage, le
-              sport, l’entrepreneuriat des jeunes, la cohésion sociale, la protection
-              de l’environnement, la paix et l’intégration sous-régionale.
+              AJRRADY est une organisation communautaire engagée dans le
+              développement durable de Youkounkoun à travers l’éducation, la culture,
+              le sport, la santé, l’environnement, la solidarité et la mobilisation
+              de la diaspora.
             </p>
           </article>
           <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
