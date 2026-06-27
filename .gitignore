@@ -7,3 +7,11 @@ next-start*.log
 *.log
 Thumbs.db
 .DS_Store
+
+# Keep full-resolution/raw media outside the deployable app.
+assets/
+gallery-originals/
+public/assets/
+public/videos/*
+!public/videos/
+!public/videos/hero.mp4

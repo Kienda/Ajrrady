@@ -36,7 +36,7 @@ export function StaggerContainer({
 }) {
   return (
     <motion.div
-      initial="hidden"
+      initial={false}
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
       variants={{
@@ -82,7 +82,7 @@ export function FadeUp({
 }) {
   return (
     <motion.div
-      initial="hidden"
+      initial={false}
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
       variants={{
@@ -113,7 +113,7 @@ export function SlideIn({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: from === "left" ? -48 : 48 }}
+      initial={false}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease, delay }}
@@ -134,7 +134,7 @@ export function HeroContainer({
 }) {
   return (
     <motion.div
-      initial="hidden"
+      initial={false}
       animate="show"
       variants={{
         hidden: {},

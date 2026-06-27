@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { navItems, siteInfo } from "@/data/site";
 
 export function Header() {
@@ -13,12 +12,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="relative z-50 border-b border-slate-100 bg-white"
-    >
+    <header className="relative z-50 border-b border-slate-100 bg-white">
       <div className="mx-auto flex min-h-[80px] w-[min(1160px,calc(100%-32px))] items-center justify-between gap-6">
         <Link
           href="/"
@@ -85,6 +79,6 @@ export function Header() {
           </Link>
         </nav>
       </div>
-    </motion.header>
+    </header>
   );
 }
