@@ -2,13 +2,15 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 // ─── Email config ──────────────────────────────────────────────────────────────
-// Email 1 goes to the Cloudflare alias which forwards to ajrrady224@gmail.com.
-// Email 2 goes to the visitor's email address from the form (never hardcoded).
-// Switch FROM to "AJRRADY <contact@ajrrady.org>" after verifying ajrrady.org
-// in the Resend dashboard. While using onboarding@resend.dev, Resend restricts
-// outbound to your account's own verified address — Email 2 will only succeed
-// once the domain is verified.
-const NOTIFY_TO = "contact@ajrrady.org";
+// EMAIL 1 → direct inbox (no Cloudflare alias) so it arrives without a relay hop.
+// EMAIL 2 → visitor's email extracted from the form body (never hardcoded here).
+//
+// ⚠️  Resend sandbox note: while FROM uses onboarding@resend.dev, Resend's
+// sandbox only delivers to your account's verified address. Email 2 will appear
+// to go to ajrrady224@gmail.com in sandbox mode even though the code sends to the
+// visitor's address. After verifying ajrrady.org in Resend, change FROM to
+// "AJRRADY <contact@ajrrady.org>" and both emails will deliver correctly.
+const NOTIFY_TO = "ajrrady224@gmail.com";
 const FROM = "AJRRADY <onboarding@resend.dev>";
 
 // ─── In-memory rate limiter ────────────────────────────────────────────────────
@@ -356,6 +358,7 @@ export async function POST(req: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   // EMAIL 1 — Organization notification (critical)
+  console.log(`[contact] EMAIL 1 → to: ${NOTIFY_TO} | replyTo: ${email}`);
   try {
     await resend.emails.send({
       from: FROM,
@@ -364,25 +367,29 @@ export async function POST(req: Request) {
       subject: "Nouveau message depuis le site AJRRADY",
       html: notificationHtml({ nom, email, telephone, sujet, message }),
     });
+    console.log("[contact] EMAIL 1 sent OK");
   } catch (err) {
-    console.error("[contact] Organization email failed:", err);
+    console.error("[contact] EMAIL 1 failed:", err);
     return NextResponse.json(
       { error: "Impossible d'envoyer le message. Veuillez réessayer plus tard." },
       { status: 500 }
     );
   }
 
-  // EMAIL 2 — Visitor confirmation (non-critical: log failure, still return success)
-  // to: visitor's email from the form — never a hardcoded address
+  // EMAIL 2 — Visitor confirmation
+  // to: visitor's email from the form — this variable comes from body.email, never hardcoded
+  console.log(`[contact] EMAIL 2 → to: ${email} | replyTo: ${email}`);
   try {
     await resend.emails.send({
       from: FROM,
       to: email,
+      replyTo: email,
       subject: "Nous avons bien reçu votre message",
       html: confirmationHtml({ nom, sujet }),
     });
+    console.log("[contact] EMAIL 2 sent OK");
   } catch (err) {
-    console.error("[contact] Confirmation email failed:", err);
+    console.error("[contact] EMAIL 2 failed:", err);
   }
 
   return NextResponse.json({ success: true });
