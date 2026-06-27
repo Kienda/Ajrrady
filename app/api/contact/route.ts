@@ -2,10 +2,13 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 // ─── Email config ──────────────────────────────────────────────────────────────
-// Notification goes to the real inbox; the alias contact@ajrrady.org is shown in
-// email content only. Switch FROM to "AJRRADY <contact@ajrrady.org>" after
-// verifying ajrrady.org in the Resend dashboard.
-const NOTIFY_TO = "ajrrady224@gmail.com";
+// Email 1 goes to the Cloudflare alias which forwards to ajrrady224@gmail.com.
+// Email 2 goes to the visitor's email address from the form (never hardcoded).
+// Switch FROM to "AJRRADY <contact@ajrrady.org>" after verifying ajrrady.org
+// in the Resend dashboard. While using onboarding@resend.dev, Resend restricts
+// outbound to your account's own verified address — Email 2 will only succeed
+// once the domain is verified.
+const NOTIFY_TO = "contact@ajrrady.org";
 const FROM = "AJRRADY <onboarding@resend.dev>";
 
 // ─── In-memory rate limiter ────────────────────────────────────────────────────
@@ -125,7 +128,15 @@ function notificationHtml({ nom, email, telephone, sujet, message }: NotifParams
 </html>`;
 }
 
-function confirmationHtml(nom: string): string {
+type ConfirmParams = { nom: string; sujet: string };
+
+function confirmationHtml({ nom, sujet }: ConfirmParams): string {
+  const date = new Date().toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -141,7 +152,6 @@ function confirmationHtml(nom: string): string {
         <!-- Purple header -->
         <tr>
           <td style="background:linear-gradient(135deg,#6A0DAD 0%,#9333EA 100%);padding:48px 48px 40px;text-align:center">
-            <!-- Logo block -->
             <div style="display:inline-block;background:rgba(255,255,255,0.18);border-radius:12px;padding:10px 24px;margin-bottom:20px">
               <span style="color:#FFFFFF;font-size:30px;font-weight:900;letter-spacing:2px;display:block">AJRRADY</span>
             </div>
@@ -168,32 +178,55 @@ function confirmationHtml(nom: string): string {
             </p>
 
             <p style="margin:0 0 16px;color:#374151;font-size:16px;line-height:1.75">
-              Merci d'avoir contacté AJRRADY.
+              Nous vous remercions d'avoir contacté AJRRADY.
             </p>
 
             <p style="margin:0 0 16px;color:#374151;font-size:16px;line-height:1.75">
-              Nous avons bien reçu votre message. Notre équipe analysera votre demande
-              et vous répondra dans les meilleurs délais.
+              Votre demande a bien été reçue avec succès.
             </p>
 
             <p style="margin:0 0 36px;color:#374151;font-size:16px;line-height:1.75">
-              En attendant, nous vous invitons à visiter notre site&nbsp;:
+              Notre équipe l'examinera et vous répondra dans les meilleurs délais.
             </p>
 
-            <!-- CTA Button -->
-            <table cellpadding="0" cellspacing="0" role="presentation" style="margin:0 0 40px">
+            <!-- Summary block -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
+              style="background:#F8F8FC;border-left:4px solid #6A0DAD;border-radius:0 8px 8px 0;margin-bottom:36px">
               <tr>
-                <td style="border-radius:8px;background:#0FA958">
-                  <a href="https://www.ajrrady.org" style="display:inline-block;padding:14px 32px;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;border-radius:8px;letter-spacing:0.02em">
-                    Visiter ajrrady.org &rarr;
-                  </a>
+                <td style="padding:20px 24px">
+                  <p style="margin:0 0 14px;color:#6A0DAD;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">
+                    Résumé de votre demande
+                  </p>
+                  <table cellpadding="0" cellspacing="0" role="presentation" style="font-size:14px;width:100%">
+                    <tr>
+                      <td style="padding:5px 0;color:#6B7280;font-weight:700;width:70px;vertical-align:top">Nom</td>
+                      <td style="padding:5px 0 5px 8px;color:#111827">${h(nom)}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:5px 0;color:#6B7280;font-weight:700;vertical-align:top">Sujet</td>
+                      <td style="padding:5px 0 5px 8px;color:#111827">${h(sujet)}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:5px 0;color:#6B7280;font-weight:700;vertical-align:top">Date</td>
+                      <td style="padding:5px 0 5px 8px;color:#111827">${date}</td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
             </table>
 
-            <p style="margin:0 0 4px;color:#374151;font-size:16px;line-height:1.75">Merci pour votre confiance.</p>
-            <p style="margin:0 0 4px;color:#374151;font-size:16px;line-height:1.75">Cordialement,</p>
-            <p style="margin:0;color:#6A0DAD;font-size:16px;font-weight:700;line-height:1.75">L'équipe AJRRADY</p>
+            <p style="margin:0 0 4px;color:#374151;font-size:16px;line-height:1.75">Merci de votre confiance.</p>
+            <p style="margin:0 0 28px;color:#374151;font-size:16px;line-height:1.75">&nbsp;</p>
+
+            <p style="margin:0 0 4px;color:#374151;font-size:15px;line-height:1.6">
+              Association des Jeunes Ressortissants,<br>
+              Résidents et Amis pour le Développement de Youkounkoun
+            </p>
+            <p style="margin:12px 0 0">
+              <a href="https://www.ajrrady.org" style="color:#6A0DAD;font-size:15px;font-weight:600;text-decoration:none">
+                www.ajrrady.org
+              </a>
+            </p>
           </td>
         </tr>
 
@@ -202,8 +235,7 @@ function confirmationHtml(nom: string): string {
 
         <!-- Contact info -->
         <tr>
-          <td style="padding:32px 48px">
-            <p style="margin:0 0 16px;color:#9CA3AF;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Coordonnées</p>
+          <td style="padding:28px 48px">
             <table cellpadding="0" cellspacing="0" role="presentation" style="font-size:14px;color:#374151">
               <tr>
                 <td style="padding:5px 0">
@@ -320,11 +352,11 @@ export async function POST(req: Request) {
     );
   }
 
-  // 9. Send emails
+  // 9. Send emails — each in its own try/catch so one failure can't suppress the other
   const resend = new Resend(process.env.RESEND_API_KEY);
 
+  // EMAIL 1 — Organization notification (critical)
   try {
-    // Notification to AJRRADY team
     await resend.emails.send({
       from: FROM,
       to: NOTIFY_TO,
@@ -332,21 +364,26 @@ export async function POST(req: Request) {
       subject: "Nouveau message depuis le site AJRRADY",
       html: notificationHtml({ nom, email, telephone, sujet, message }),
     });
-
-    // Auto-reply to visitor
-    await resend.emails.send({
-      from: FROM,
-      to: email,
-      subject: "Nous avons bien reçu votre message",
-      html: confirmationHtml(nom),
-    });
-
-    return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("[contact] Resend error:", err);
+    console.error("[contact] Organization email failed:", err);
     return NextResponse.json(
       { error: "Impossible d'envoyer le message. Veuillez réessayer plus tard." },
       { status: 500 }
     );
   }
+
+  // EMAIL 2 — Visitor confirmation (non-critical: log failure, still return success)
+  // to: visitor's email from the form — never a hardcoded address
+  try {
+    await resend.emails.send({
+      from: FROM,
+      to: email,
+      subject: "Nous avons bien reçu votre message",
+      html: confirmationHtml({ nom, sujet }),
+    });
+  } catch (err) {
+    console.error("[contact] Confirmation email failed:", err);
+  }
+
+  return NextResponse.json({ success: true });
 }
