@@ -354,42 +354,55 @@ export async function POST(req: Request) {
     );
   }
 
-  // 9. Send emails — each in its own try/catch so one failure can't suppress the other
+  // 9. Send emails
+  // resend.emails.send() returns { data, error } — it does NOT throw on API errors.
+  // Always check the error field; never treat absence of an exception as success.
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  // EMAIL 1 — Organization notification (critical)
-  console.log(`[contact] EMAIL 1 → to: ${NOTIFY_TO} | replyTo: ${email}`);
-  try {
-    await resend.emails.send({
-      from: FROM,
-      to: NOTIFY_TO,
-      replyTo: email,
-      subject: "Nouveau message depuis le site AJRRADY",
-      html: notificationHtml({ nom, email, telephone, sujet, message }),
-    });
-    console.log("[contact] EMAIL 1 sent OK");
-  } catch (err) {
-    console.error("[contact] EMAIL 1 failed:", err);
+  // ── EMAIL 1: Organization notification ───────────────────────────────────────
+  console.log("Sending email to:", NOTIFY_TO);
+  console.log("Visitor email:", email);
+
+  const { data: data1, error: error1 } = await resend.emails.send({
+    from: FROM,
+    to: NOTIFY_TO,
+    replyTo: email,
+    subject: "Nouveau message depuis le site AJRRADY",
+    html: notificationHtml({ nom, email, telephone, sujet, message }),
+  });
+
+  console.log("Resend result:", data1);
+  console.log("Resend error:", error1);
+
+  if (error1) {
+    console.error("[contact] EMAIL 1 failed:", JSON.stringify(error1));
     return NextResponse.json(
       { error: "Impossible d'envoyer le message. Veuillez réessayer plus tard." },
       { status: 500 }
     );
   }
 
-  // EMAIL 2 — Visitor confirmation
-  // to: visitor's email from the form — this variable comes from body.email, never hardcoded
-  console.log(`[contact] EMAIL 2 → to: ${email} | replyTo: ${email}`);
-  try {
-    await resend.emails.send({
-      from: FROM,
-      to: email,
-      replyTo: email,
-      subject: "Nous avons bien reçu votre message",
-      html: confirmationHtml({ nom, sujet }),
-    });
-    console.log("[contact] EMAIL 2 sent OK");
-  } catch (err) {
-    console.error("[contact] EMAIL 2 failed:", err);
+  // ── EMAIL 2: Visitor confirmation ────────────────────────────────────────────
+  // to: visitor's email from the form — the `email` variable, never hardcoded
+  console.log("Sending confirmation to:", email);
+
+  const { data: data2, error: error2 } = await resend.emails.send({
+    from: FROM,
+    to: email,
+    replyTo: email,
+    subject: "Nous avons bien reçu votre message",
+    html: confirmationHtml({ nom, sujet }),
+  });
+
+  console.log("Resend result:", data2);
+  console.log("Resend error:", error2);
+
+  if (error2) {
+    console.error("[contact] EMAIL 2 failed:", JSON.stringify(error2));
+    return NextResponse.json(
+      { error: "Confirmation non envoyée. Veuillez réessayer." },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json({ success: true });
