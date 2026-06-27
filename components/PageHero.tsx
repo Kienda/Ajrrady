@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { HighlightText } from "@/components/HighlightText";
+import { FloatingDecorations, FloatingElement } from "@/components/motion";
 
 type PageHeroProps = {
   eyebrow: string;
@@ -9,8 +12,9 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, description }: PageHeroProps) {
   return (
-    <section className="overflow-hidden bg-[#f1e5f7]">
-      <div className="mx-auto grid min-h-[300px] w-[min(1160px,calc(100%-32px))] items-center gap-8 py-14 md:grid-cols-[1fr_200px] md:py-16">
+    <section className="relative isolate overflow-hidden bg-[#f1e5f7]">
+      <FloatingDecorations />
+      <div className="relative mx-auto grid min-h-[300px] w-[min(1160px,calc(100%-32px))] items-center gap-8 py-14 md:grid-cols-[1fr_200px] md:py-16">
         <div>
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ajGreen">
             {eyebrow}
@@ -23,7 +27,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
           </p>
         </div>
 
-        <div>
+        <FloatingElement distance={8} duration={6}>
           <Image
             src="/SymboleAJRRADY.png"
             alt=""
@@ -31,7 +35,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
             height={285}
             className="mx-auto max-h-[220px] w-auto object-contain md:ml-auto md:mr-0"
           />
-        </div>
+        </FloatingElement>
       </div>
     </section>
   );

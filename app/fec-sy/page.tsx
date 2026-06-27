@@ -1,18 +1,36 @@
 import type { Metadata } from "next";
 import { HighlightText } from "@/components/HighlightText";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { festivalParticipants } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
+import { sportsEventSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = createMetadata({
-  title: "FEC-SY",
+  title: "FEC-SY 2026 – Festival de Youkounkoun",
+  description:
+    "FEC-SY 2026 : festival estival et culturel de Youkounkoun du 11 juillet au 9 août. Tournoi de football et journée culturelle, Koundara.",
+  keywords: [
+    "FEC-SY",
+    "FEC-SY 2026",
+    "festival",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "football",
+    "culture",
+    "AJRRADY",
+    "Stade Lonny Allotène",
+    "tournoi",
+  ],
   path: "/fec-sy",
 });
 
 export default function FestivalPage() {
   return (
     <>
+      <JsonLd data={sportsEventSchema()} />
       <PageHero
         eyebrow="FEC-SY"
         title="Festival Culturel et Sportif de Youkounkoun"
@@ -29,7 +47,7 @@ export default function FestivalPage() {
           <aside className="rounded-lg bg-ajPurple p-7 text-white">
             <h2 className="text-2xl font-black">Édition 2026</h2>
             <p className="mt-4 text-lg leading-8">
-              Deuxième édition prévue du 10 juillet au 11 août 2026.
+              Deuxième édition prévue du 11 juillet au 9 août 2026.
             </p>
           </aside>
         </div>

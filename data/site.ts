@@ -19,15 +19,26 @@ export const siteInfo = {
 export const seo = {
   title: "AJRRADY | Association pour le Développement de Youkounkoun",
   description:
-    "AJRRADY est une association engagée dans l’éducation, la culture, le sport, la santé, l’environnement, la solidarité et le développement durable de Youkounkoun.",
+    "AJRRADY, association guinéenne pour le développement de Youkounkoun, Koundara. Éducation, culture, sport, santé, environnement et solidarité.",
   keywords: [
-    "santé communautaire",
-    "santé publique",
-    "prévention sanitaire",
-    "développement local",
-    "association guinéenne",
-    "Youkounkoun",
     "AJRRADY",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "association guinéenne",
+    "développement local",
+    "développement communautaire",
+    "ONG Guinée",
+    "association à but non lucratif",
+    "éducation Guinée",
+    "culture Youkounkoun",
+    "sport Youkounkoun",
+    "santé communautaire",
+    "environnement Guinée",
+    "solidarité diaspora",
+    "Région de Boké",
+    "FEC-SY",
+    "FEC-SY 2026",
   ],
 };
 

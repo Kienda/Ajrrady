@@ -5,7 +5,20 @@ import { galleryAlbums } from "@/src/data/gallery";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
-  title: "Galerie",
+  title: "Galerie Photos – Youkounkoun, Guinée",
+  description:
+    "Photos et vidéos des activités de l'AJRRADY à Youkounkoun, Koundara. Festival FEC-SY, actions éducatives et événements communautaires.",
+  keywords: [
+    "AJRRADY",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "galerie",
+    "photos",
+    "FEC-SY",
+    "activités",
+    "association guinéenne",
+  ],
   path: "/galerie",
 });
 

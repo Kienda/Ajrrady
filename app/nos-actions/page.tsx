@@ -7,7 +7,23 @@ import { actionDomains } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
-  title: "Nos Actions",
+  title: "Programmes à Youkounkoun, Koundara, Guinée",
+  description:
+    "Éducation, culture, sport, santé, environnement, solidarité : les 7 domaines d'intervention de l'AJRRADY à Youkounkoun, Koundara, Guinée.",
+  keywords: [
+    "AJRRADY",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "éducation",
+    "culture",
+    "sport",
+    "santé",
+    "environnement",
+    "solidarité",
+    "diaspora",
+    "association guinéenne",
+  ],
   path: "/nos-actions",
 });
 

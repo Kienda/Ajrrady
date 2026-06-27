@@ -5,7 +5,19 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
-  title: "Adhésion",
+  title: "Adhésion – Rejoindre l'association",
+  description:
+    "Rejoignez l'AJRRADY et contribuez au développement de Youkounkoun. Formulaire d'adhésion en ligne pour cette association guinéenne.",
+  keywords: [
+    "AJRRADY",
+    "adhésion",
+    "membre",
+    "rejoindre",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "association guinéenne",
+  ],
   path: "/adhesion",
 });
 

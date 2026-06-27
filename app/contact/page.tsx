@@ -7,7 +7,19 @@ import { siteInfo } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
-  title: "Contact",
+  title: "Contactez-nous – Youkounkoun, Guinée",
+  description:
+    "Contactez l'AJRRADY par téléphone, email ou formulaire. Siège à Conakry, zone d'action : Youkounkoun, Koundara, Guinée.",
+  keywords: [
+    "AJRRADY",
+    "contact",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "téléphone",
+    "email",
+    "association guinéenne",
+  ],
   path: "/contact",
 });
 

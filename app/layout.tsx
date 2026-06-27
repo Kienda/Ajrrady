@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
+import { MotionPage } from "@/components/motion";
 import { seo, siteInfo } from "@/data/site";
+import { organizationSchema, webSiteSchema } from "@/lib/schemas";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -57,8 +60,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={jakarta.variable}>
       <body>
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={webSiteSchema()} />
         <Header />
-        <main>{children}</main>
+        <main>
+          <MotionPage>{children}</MotionPage>
+        </main>
         <Footer />
       </body>
     </html>

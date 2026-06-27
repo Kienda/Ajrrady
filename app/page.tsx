@@ -1,14 +1,35 @@
-"use client";
-
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { HighlightText } from "@/components/HighlightText";
+import { JsonLd } from "@/components/JsonLd";
 import { HeroContainer, HeroItem, StaggerContainer } from "@/components/motion";
 import { ProgramCard } from "@/components/ProgramCard";
 import { homeDomains } from "@/data/site";
+import { createMetadata } from "@/lib/metadata";
+import { localBusinessSchema } from "@/lib/schemas";
+
+export const metadata: Metadata = createMetadata({
+  titleAbsolute: "AJRRADY | Association pour le Développement de Youkounkoun",
+  description:
+    "AJRRADY, association guinéenne pour le développement de Youkounkoun, Koundara. Éducation, culture, sport, santé, environnement et solidarité.",
+  keywords: [
+    "AJRRADY",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "association guinéenne",
+    "développement local",
+    "ONG Guinée",
+    "FEC-SY 2026",
+  ],
+  path: "/",
+});
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={localBusinessSchema()} />
+
       <section className="relative isolate overflow-hidden bg-ajPurple">
         <video
           aria-hidden="true"

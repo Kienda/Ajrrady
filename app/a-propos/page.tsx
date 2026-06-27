@@ -7,7 +7,21 @@ import { createMetadata } from "@/lib/metadata";
 import { siteInfo, values } from "@/data/site";
 
 export const metadata: Metadata = createMetadata({
-  title: "À Propos",
+  title: "Notre Association – AJRRADY Youkounkoun",
+  description:
+    "Découvrez la mission, la vision et les valeurs de l'AJRRADY, association guinéenne engagée pour Youkounkoun, Koundara, Guinée.",
+  keywords: [
+    "AJRRADY",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "association guinéenne",
+    "mission",
+    "vision",
+    "valeurs",
+    "histoire",
+    "développement local",
+  ],
   path: "/a-propos",
 });
 

@@ -26,7 +26,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl border px-6 py-3.5 text-[15px] font-semibold tracking-wide transition-colors ${variants[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-xl border px-6 py-3.5 text-[15px] font-semibold tracking-wide shadow-sm transition-[background-color,border-color,color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg active:scale-[0.99] motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 ${variants[variant]} ${className}`}
     >
       <span>{children}</span>
       <ArrowRight aria-hidden="true" className="h-4 w-4" />

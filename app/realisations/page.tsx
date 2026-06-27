@@ -7,7 +7,21 @@ import { achievements } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
-  title: "Réalisations",
+  title: "Projets & Réalisations à Youkounkoun",
+  description:
+    "Projets et réalisations de l'AJRRADY à Youkounkoun, Koundara : stade, école, infrastructure communautaire et développement local.",
+  keywords: [
+    "AJRRADY",
+    "Youkounkoun",
+    "Koundara",
+    "Guinée",
+    "réalisations",
+    "projets",
+    "Stade Lonny Allotène",
+    "école",
+    "infrastructure",
+    "développement local",
+  ],
   path: "/realisations",
 });
 
