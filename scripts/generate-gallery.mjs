@@ -4,9 +4,11 @@ import crypto from "crypto";
 import sharp from "sharp";
 
 const publicDir = path.join(process.cwd(), "public");
-const sourceDir = path.join(publicDir, "assets");
+const sourceDir = process.env.GALLERY_SOURCE_DIR
+  ? path.resolve(process.env.GALLERY_SOURCE_DIR)
+  : path.join(process.cwd(), "gallery-originals");
 const outputDir = path.join(publicDir, "gallery");
-const outputDataFile = path.join(process.cwd(), "data", "gallery.json");
+const outputDataFile = path.join(process.cwd(), "src", "data", "gallery.ts");
 
 const supportedExtensions = new Set([".jpg", ".jpeg", ".png", ".webp", ".heic"]);
 const targetMaxBytes = 390 * 1024;
@@ -73,7 +75,8 @@ async function main() {
 
   albums.sort((a, b) => compareAlbumNames(a.slug, b.slug));
 
-  await fs.writeFile(`${outputDataFile}.tmp`, `${JSON.stringify(albums, null, 2)}\n`);
+  await fs.mkdir(path.dirname(outputDataFile), { recursive: true });
+  await fs.writeFile(`${outputDataFile}.tmp`, serializeGalleryModule(albums));
   await fs.rename(`${outputDataFile}.tmp`, outputDataFile);
 
   const stats = await collectOutputStats();
@@ -403,6 +406,29 @@ function compareAlbumNames(a, b) {
   }
 
   return collator.compare(a, b);
+}
+
+function serializeGalleryModule(albums) {
+  const albumDefinitions = albums.map(({ slug, title }) => ({ slug, title }));
+  const galleryImages = albums.flatMap((album) => album.images);
+
+  return `import type { GalleryAlbum, GalleryImage } from "@/types/gallery";
+
+const albumDefinitions = ${JSON.stringify(albumDefinitions, null, 2)} as const;
+
+export const galleryImages: GalleryImage[] = ${JSON.stringify(galleryImages, null, 2)};
+
+export const galleryAlbums: GalleryAlbum[] = albumDefinitions.map((album) => {
+  const images = galleryImages.filter((image) => image.album === album.slug);
+
+  return {
+    slug: album.slug,
+    title: album.title,
+    count: images.length,
+    images,
+  };
+});
+`;
 }
 
 function slugify(value) {

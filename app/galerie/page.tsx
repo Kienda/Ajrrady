@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import galleryAlbums from "@/data/gallery.json";
 import { Gallery } from "@/components/Gallery";
 import { PageHero } from "@/components/PageHero";
+import { galleryAlbums } from "@/src/data/gallery";
 import { createMetadata } from "@/lib/metadata";
-import type { GalleryAlbum } from "@/types/gallery";
 
 export const metadata: Metadata = createMetadata({
   title: "Galerie",
@@ -18,7 +17,7 @@ export default function GalleryPage() {
         title="Photos officielles"
         description="Retrouvez les moments forts des activités, rencontres et événements portés par AJRRADY."
       />
-      <Gallery albums={galleryAlbums as GalleryAlbum[]} />
+      <Gallery albums={galleryAlbums} />
     </>
   );
 }
