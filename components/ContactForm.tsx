@@ -13,11 +13,18 @@ type Field = {
 type ContactFormProps = {
   fields: Field[];
   submitLabel: string;
+  action?: string;
+  successMessage?: string;
 };
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export function ContactForm({ fields, submitLabel }: ContactFormProps) {
+export function ContactForm({
+  fields,
+  submitLabel,
+  action = "/api/contact",
+  successMessage = "Message envoyé avec succès.",
+}: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
@@ -30,11 +37,11 @@ export function ContactForm({ fields, submitLabel }: ContactFormProps) {
     const formData = new FormData(e.currentTarget);
     const body: Record<string, string> = { _honey: String(formData.get("_honey") ?? "") };
     for (const field of fields) {
-      body[field.name] = String(formData.get(field.name) ?? "");
+      body[field.name] = String(formData.get(field.name) ?? "").trim();
     }
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(action, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -71,10 +78,7 @@ export function ContactForm({ fields, submitLabel }: ContactFormProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <p className="text-lg font-bold text-ajGreen">Message envoyé avec succès.</p>
-          <p className="mt-1 text-sm text-slate-500">
-            Une confirmation vous a été envoyée par email.
-          </p>
+          <p className="text-lg font-bold text-ajGreen">{successMessage}</p>
         </div>
       </div>
     );

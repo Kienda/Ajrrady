@@ -9,15 +9,16 @@ export const metadata: Metadata = createMetadata({
   path: "/adhesion",
 });
 
+// Field `name` attributes must match the keys validated in /api/adhesion exactly.
 const fields = [
-  { label: "Nom", name: "Nom" },
-  { label: "Prénom", name: "Prénom" },
-  { label: "Téléphone", name: "Téléphone", type: "tel" },
-  { label: "Email", name: "Email", type: "email" },
-  { label: "Ville", name: "Ville" },
-  { label: "Pays", name: "Pays" },
-  { label: "Profession", name: "Profession" },
-  { label: "Message", name: "Message", multiline: true },
+  { label: "Nom",        name: "nom" },
+  { label: "Prénom",     name: "prenom" },
+  { label: "Téléphone",  name: "telephone", type: "tel", required: false },
+  { label: "Email",      name: "email",     type: "email" },
+  { label: "Ville",      name: "ville" },
+  { label: "Pays",       name: "pays" },
+  { label: "Profession", name: "profession" },
+  { label: "Message",    name: "message",   multiline: true },
 ];
 
 export default function AdhesionPage() {
@@ -40,6 +41,8 @@ export default function AdhesionPage() {
           <ContactForm
             fields={fields}
             submitLabel="Envoyer la demande"
+            action="/api/adhesion"
+            successMessage="Votre demande d'adhésion a été envoyée avec succès."
           />
         </div>
       </section>
