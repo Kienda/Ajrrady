@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import { createMetadata } from "@/lib/metadata";
 import { siteInfo, values } from "@/data/site";
 
@@ -18,9 +19,10 @@ export default function AboutPage() {
         description="Une association communautaire à but non lucratif mobilisée pour le développement de Youkounkoun."
       />
 
+      {/* Présentation + info box */}
       <section className="py-16">
         <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-10 lg:grid-cols-[1fr_0.8fr]">
-          <div>
+          <SlideIn from="left">
             <SectionHeading
               eyebrow="Présentation"
               title="Une organisation au service de Youkounkoun"
@@ -38,73 +40,83 @@ export default function AboutPage() {
                 initiatives engagées en faveur des populations de Youkounkoun.
               </p>
             </div>
-          </div>
-          <div className="rounded-lg border-l-4 border-ajGreen bg-ajLight p-7">
-            <dl className="space-y-5">
-              <InfoTerm label="Nature juridique" value={siteInfo.legalNature} />
-              <InfoTerm label="Siège social" value={siteInfo.headOffice} />
-              <InfoTerm label="Zone d’intervention" value={siteInfo.interventionArea} />
-              <InfoTerm label="Devise" value={siteInfo.slogan} />
-            </dl>
-          </div>
+          </SlideIn>
+          <SlideIn from="right" delay={0.1}>
+            <div className="rounded-lg border-l-4 border-ajGreen bg-ajLight p-7">
+              <dl className="space-y-5">
+                <InfoTerm label="Nature juridique" value={siteInfo.legalNature} />
+                <InfoTerm label="Siège social" value={siteInfo.headOffice} />
+                <InfoTerm label="Zone d'intervention" value={siteInfo.interventionArea} />
+                <InfoTerm label="Devise" value={siteInfo.slogan} />
+              </dl>
+            </div>
+          </SlideIn>
         </div>
       </section>
 
+      {/* Historique */}
       <section className="bg-ajLight py-16">
         <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
           <SectionHeading eyebrow="Historique" title="Une structure fédératrice" />
-          <div className="max-w-4xl space-y-5 text-lg leading-8 text-slate-700">
-            <p>
-              AJRRADY est née de la volonté des fils, filles, résidents et amis de
-              Youkounkoun de contribuer activement au développement socio-économique,
-              culturel et éducatif de leur localité.
-            </p>
-            <p>
-              Face aux défis liés à l'éducation, aux infrastructures communautaires,
-              à la promotion culturelle, à l'insertion des jeunes et à la cohésion
-              sociale, plusieurs ressortissants se sont regroupés au sein d'une
-              structure capable de mobiliser les compétences, les ressources et les
-              initiatives au service du développement local.
-            </p>
-          </div>
+          <FadeUp>
+            <div className="max-w-4xl space-y-5 text-lg leading-8 text-slate-700">
+              <p>
+                AJRRADY est née de la volonté des fils, filles, résidents et amis de
+                Youkounkoun de contribuer activement au développement socio-économique,
+                culturel et éducatif de leur localité.
+              </p>
+              <p>
+                Face aux défis liés à l'éducation, aux infrastructures communautaires,
+                à la promotion culturelle, à l'insertion des jeunes et à la cohésion
+                sociale, plusieurs ressortissants se sont regroupés au sein d'une
+                structure capable de mobiliser les compétences, les ressources et les
+                initiatives au service du développement local.
+              </p>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
+      {/* Mission + Vision */}
       <section className="py-16">
-        <div className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-8 lg:grid-cols-2">
-          <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
-            <SectionHeading eyebrow="Mission" title="Mobiliser pour développer" />
-            <p className="text-lg leading-8 text-slate-700">
-              AJRRADY est une organisation communautaire engagée dans le
-              développement durable de Youkounkoun à travers l’éducation, la culture,
-              le sport, la santé, l’environnement, la solidarité et la mobilisation
-              de la diaspora.
-            </p>
-          </article>
-          <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
-            <SectionHeading eyebrow="Vision" title="Une communauté forte" />
-            <p className="text-lg leading-8 text-slate-700">
-              Faire de Youkounkoun une communauté unie, dynamique, solidaire et
-              prospère, portée par une jeunesse responsable et engagée dans le
-              développement durable.
-            </p>
-          </article>
-        </div>
+        <StaggerContainer className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-8 lg:grid-cols-2">
+          <StaggerItem>
+            <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
+              <SectionHeading eyebrow="Mission" title="Mobiliser pour développer" />
+              <p className="text-lg leading-8 text-slate-700">
+                AJRRADY est une organisation communautaire engagée dans le
+                développement durable de Youkounkoun à travers l'éducation, la culture,
+                le sport, la santé, l'environnement, la solidarité et la mobilisation
+                de la diaspora.
+              </p>
+            </article>
+          </StaggerItem>
+          <StaggerItem>
+            <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
+              <SectionHeading eyebrow="Vision" title="Une communauté forte" />
+              <p className="text-lg leading-8 text-slate-700">
+                Faire de Youkounkoun une communauté unie, dynamique, solidaire et
+                prospère, portée par une jeunesse responsable et engagée dans le
+                développement durable.
+              </p>
+            </article>
+          </StaggerItem>
+        </StaggerContainer>
       </section>
 
+      {/* Valeurs */}
       <section className="bg-ajLight py-16">
         <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
           <SectionHeading eyebrow="Valeurs" title="Les valeurs de l'association" />
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <StaggerContainer className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {values.map((value) => (
-              <li
-                key={value}
-                className="flex min-h-[90px] items-center justify-center rounded-lg border border-slate-200 bg-white p-4 text-center font-extrabold text-ajPurple"
-              >
-                {value}
-              </li>
+              <StaggerItem key={value}>
+                <div className="flex min-h-[90px] items-center justify-center rounded-lg border border-slate-200 bg-white p-4 text-center font-extrabold text-ajPurple">
+                  {value}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerContainer>
         </div>
       </section>
     </>

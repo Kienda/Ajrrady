@@ -46,37 +46,44 @@ export const homeDomains: CardItem[] = [
     title: "Éducation",
     description: "Soutenir la scolarisation et la formation des jeunes.",
     icon: "education",
+    image: "/illustrations/education.svg",
   },
   {
     title: "Culture",
     description: "Promouvoir notre culture et valoriser nos traditions.",
     icon: "culture",
+    image: "/illustrations/culture.svg",
   },
   {
     title: "Sport",
     description: "Encourager la pratique sportive et l'esprit d'équipe.",
     icon: "sport",
+    image: "/illustrations/sport.svg",
   },
   {
     title: "Santé",
     description:
       "Promouvoir la santé communautaire, la prévention, l’accès aux soins et les actions de sensibilisation au bénéfice des populations de Youkounkoun.",
     icon: "health",
+    image: "/illustrations/health.svg",
   },
   {
     title: "Environnement",
     description: "Agir pour un cadre de vie propre et durable.",
     icon: "environment",
+    image: "/illustrations/environment.svg",
   },
   {
     title: "Solidarité",
     description: "Renforcer la cohésion sociale et l'entraide communautaire.",
     icon: "solidarity",
+    image: "/illustrations/solidarity.svg",
   },
   {
     title: "Diaspora",
     description: "Mobiliser les fils et filles de Youkounkoun du monde entier.",
     icon: "diaspora",
+    image: "/illustrations/diaspora.svg",
   },
 ];
 
@@ -84,6 +91,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Éducation",
     icon: "education",
+    image: "/illustrations/education.svg",
     items: [
       "Sensibilisation scolaire",
       "Promotion de l'excellence",
@@ -94,6 +102,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Culture",
     icon: "culture",
+    image: "/illustrations/culture.svg",
     items: [
       "Sauvegarde du patrimoine culturel",
       "Promotion des traditions locales",
@@ -103,6 +112,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Sport",
     icon: "sport",
+    image: "/illustrations/sport.svg",
     items: [
       "Organisation de compétitions sportives",
       "Promotion du football et des activités de jeunesse",
@@ -112,6 +122,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Santé",
     icon: "health",
+    image: "/illustrations/health.svg",
     description:
       "AJRRADY soutient les initiatives de santé publique à travers la sensibilisation, la prévention, les campagnes médicales, l’accompagnement des populations vulnérables et la promotion du bien-être communautaire.",
     items: [
@@ -126,6 +137,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Environnement et développement durable",
     icon: "environment",
+    image: "/illustrations/environment.svg",
     items: [
       "Protection de l'environnement",
       "Assainissement communautaire",
@@ -139,6 +151,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Solidarité",
     icon: "solidarity",
+    image: "/illustrations/solidarity.svg",
     items: [
       "Actions de solidarité",
       "Promotion du vivre-ensemble",
@@ -149,6 +162,7 @@ export const actionDomains: CardItem[] = [
   {
     title: "Diaspora",
     icon: "diaspora",
+    image: "/illustrations/diaspora.svg",
     items: [
       "Mobilisation des ressortissants",
       "Contribution au développement local",

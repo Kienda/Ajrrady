@@ -1,9 +1,15 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 type SectionHeadingProps = {
   eyebrow?: string;
   title: string;
   description?: string;
   centered?: boolean;
 };
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function SectionHeading({
   eyebrow,
@@ -12,7 +18,13 @@ export function SectionHeading({
   centered = false,
 }: SectionHeadingProps) {
   return (
-    <div className={`mb-10 max-w-3xl ${centered ? "mx-auto text-center" : ""}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, ease }}
+      className={`mb-10 max-w-3xl ${centered ? "mx-auto text-center" : ""}`}
+    >
       {eyebrow ? (
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ajGreen">
           {eyebrow}
@@ -24,6 +36,6 @@ export function SectionHeading({
       {description ? (
         <p className="mt-5 text-lg leading-[1.8] text-slate-600">{description}</p>
       ) : null}
-    </div>
+    </motion.div>
   );
 }

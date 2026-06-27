@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { InfoCard } from "@/components/InfoCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { StaggerContainer } from "@/components/motion";
 import { achievements } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 
@@ -24,11 +25,11 @@ export default function AchievementsPage() {
             eyebrow="Réalisations"
             title="Principales réalisations de l'AJRRADY"
           />
-          <div className="grid gap-5 md:grid-cols-2">
+          <StaggerContainer className="grid gap-5 md:grid-cols-2">
             {achievements.map((item) => (
               <InfoCard key={item.title} item={item} />
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
     </>

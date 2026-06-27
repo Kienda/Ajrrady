@@ -17,6 +17,7 @@ export type CardItem = {
   title: string;
   description?: string;
   icon?: IconName;
+  image?: string;
   items?: string[];
 };
 
