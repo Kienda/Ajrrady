@@ -53,7 +53,7 @@ export default function AboutPage() {
             </div>
           </SlideIn>
           <SlideIn from="right" delay={0.1}>
-            <div className="rounded-lg border-l-4 border-ajGreen bg-ajLight p-7">
+            <div className="rounded-lg border-l-4 border-ajGreen bg-ajLight p-7 shadow-card transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0">
               <dl className="space-y-5">
                 <InfoTerm label="Nature juridique" value={siteInfo.legalNature} />
                 <InfoTerm label="Siège social" value={siteInfo.headOffice} />
@@ -90,7 +90,7 @@ export default function AboutPage() {
       <section className="py-16">
         <StaggerContainer className="mx-auto grid w-[min(1160px,calc(100%-32px))] gap-8 lg:grid-cols-2">
           <StaggerItem>
-            <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
+            <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0">
               <SectionHeading eyebrow="Mission" title="Mobiliser pour développer" />
               <p className="text-lg leading-8 text-slate-700">
                 <HighlightText text="AJRRADY est une organisation communautaire engagée dans le développement durable de Youkounkoun à travers l'éducation, la culture, le sport, la santé, l'environnement, la solidarité et la mobilisation de la diaspora." />
@@ -98,7 +98,7 @@ export default function AboutPage() {
             </article>
           </StaggerItem>
           <StaggerItem>
-            <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
+            <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0">
               <SectionHeading eyebrow="Vision" title="Une communauté forte" />
               <p className="text-lg leading-8 text-slate-700">
                 <HighlightText text="Faire de Youkounkoun une communauté unie, dynamique, solidaire et prospère, portée par une jeunesse responsable et engagée dans le développement durable." />
@@ -115,7 +115,7 @@ export default function AboutPage() {
           <StaggerContainer className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {values.map((value) => (
               <StaggerItem key={value}>
-                <div className="flex min-h-[90px] items-center justify-center rounded-lg border border-slate-200 bg-white p-4 text-center font-extrabold text-ajPurple">
+                <div className="flex min-h-[90px] items-center justify-center rounded-lg border border-slate-200 bg-white p-4 text-center font-extrabold text-ajPurple shadow-sm transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0">
                   {value}
                 </div>
               </StaggerItem>

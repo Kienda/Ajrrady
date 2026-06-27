@@ -44,7 +44,7 @@ export function AlbumFilter({
               type="button"
               role="tab"
               aria-selected={active}
-              className={`whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-bold transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ajGreen ${
+              className={`whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-bold transition-[background-color,color,box-shadow,transform] duration-300 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ajGreen motion-reduce:hover:translate-y-0 ${
                 active
                   ? "bg-ajPurple text-white shadow-lg"
                   : "bg-white text-ajPurple hover:bg-white/80 hover:text-ajGreen"

@@ -123,7 +123,7 @@ export function Gallery({ albums }: GalleryProps) {
 function GalleryEmptyState() {
   return (
     <section className="bg-white py-16 sm:py-20">
-      <div className="mx-auto w-[min(900px,calc(100%-32px))] rounded-2xl border border-dashed border-ajPurple/30 bg-[#F8F6FC] p-8 text-center shadow-lg sm:p-10">
+      <div className="mx-auto w-[min(900px,calc(100%-32px))] rounded-2xl border border-dashed border-ajPurple/30 bg-[#F8F6FC] p-8 text-center shadow-lg transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0 sm:p-10">
         <ImageIcon aria-hidden="true" className="mx-auto h-12 w-12 text-ajGreen" />
         <h2 className="mt-4 text-2xl font-black text-ajPurple">
           Photos officielles bientôt disponibles

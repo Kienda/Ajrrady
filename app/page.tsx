@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { ButtonLink } from "@/components/ButtonLink";
 import { HighlightText } from "@/components/HighlightText";
+import { HeroVideo } from "@/components/HeroVideo";
 import { JsonLd } from "@/components/JsonLd";
-import { HeroContainer, HeroItem, StaggerContainer } from "@/components/motion";
+import {
+  FloatingDecorations,
+  HeroContainer,
+  HeroItem,
+  StaggerContainer,
+} from "@/components/motion";
 import { ProgramCard } from "@/components/ProgramCard";
 import { homeDomains } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 import { localBusinessSchema } from "@/lib/schemas";
+import { WelcomePopup } from "@/components/WelcomePopup";
 
 export const metadata: Metadata = createMetadata({
   titleAbsolute: "AJRRADY | Association pour le Développement de Youkounkoun",
@@ -25,31 +33,28 @@ export const metadata: Metadata = createMetadata({
   path: "/",
 });
 
+const homeStats = [
+  { value: homeDomains.length, label: "Secteurs d'intervention" },
+  { value: 2, label: "Éditions FEC-SY" },
+  { value: 1, label: "Communauté mobilisée" },
+];
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessSchema()} />
+      <WelcomePopup />
 
       <section className="relative isolate overflow-hidden bg-ajPurple">
-        <video
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover brightness-[0.86] contrast-[1.12] saturate-[1.18]"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/Landingpage.jpg"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        <HeroVideo />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/76 via-black/42 to-black/12" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
         <div className="absolute inset-0 -z-10 bg-ajPurple/15" />
+        <FloatingDecorations className="-z-10 opacity-70" />
 
         <div className="mx-auto flex min-h-[560px] w-[min(1160px,calc(100%-32px))] items-center py-16 md:py-20">
           <HeroContainer className="max-w-[660px]">
-            <HeroItem>
+            <HeroItem variant="headline">
               <h1
                 className="max-w-[580px] text-[2.75rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[3.5rem] lg:text-[4.25rem]"
                 style={{ textShadow: "0 4px 24px rgba(0,0,0,0.45)" }}
@@ -62,7 +67,7 @@ export default function HomePage() {
                 </span>
               </h1>
             </HeroItem>
-            <HeroItem>
+            <HeroItem variant="subtitle">
               <p
                 className="mt-6 max-w-[520px] rounded-2xl border border-white/15 bg-black/35 px-5 py-4 text-lg font-semibold leading-[1.8] text-white shadow-lg backdrop-blur-[2px]"
                 style={{ color: "#fff", textShadow: "0 2px 14px rgba(0,0,0,0.75)" }}
@@ -73,7 +78,7 @@ export default function HomePage() {
                 />
               </p>
             </HeroItem>
-            <HeroItem>
+            <HeroItem variant="pop">
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/nos-actions">Découvrir Nos Actions</ButtonLink>
                 <ButtonLink href="/galerie" variant="light">
@@ -85,6 +90,25 @@ export default function HomePage() {
               </div>
             </HeroItem>
           </HeroContainer>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-100 bg-white py-6">
+        <div className="mx-auto grid w-[min(980px,calc(100%-32px))] gap-4 sm:grid-cols-3">
+          {homeStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-2xl border border-slate-100 bg-white px-5 py-4 text-center shadow-card transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0"
+            >
+              <AnimatedNumber
+                value={stat.value}
+                className="block text-3xl font-black leading-none text-ajPurple"
+              />
+              <span className="mt-2 block text-sm font-bold text-slate-600">
+                {stat.label}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -107,7 +131,11 @@ export default function HomePage() {
 
           <StaggerContainer className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {homeDomains.map((domain) => (
-              <ProgramCard key={domain.title} item={domain} />
+              <ProgramCard
+                key={domain.title}
+                item={domain}
+                learnMoreHref="/nos-actions"
+              />
             ))}
           </StaggerContainer>
 

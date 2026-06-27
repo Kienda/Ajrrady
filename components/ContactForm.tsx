@@ -64,7 +64,7 @@ export function ContactForm({
 
   if (status === "success") {
     return (
-      <div className="flex min-h-64 items-center justify-center rounded-lg border border-ajGreen/30 bg-ajGreen/5 p-8 text-center">
+      <div className="flex min-h-64 items-center justify-center rounded-lg border border-ajGreen/30 bg-ajGreen/5 p-8 text-center shadow-card transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0">
         <div>
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-ajGreen/15">
             <svg
@@ -92,7 +92,7 @@ export function ContactForm({
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="grid gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+      className="grid gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0"
     >
       {/* Honeypot – invisible to users, bots fill it */}
       <input

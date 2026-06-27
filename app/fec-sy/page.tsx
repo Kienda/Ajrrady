@@ -44,7 +44,7 @@ export default function FestivalPage() {
               <HighlightText text="Le FEC-SY est l’événement phare de l’AJRRADY. Il valorise le patrimoine culturel, sportif et humain de Youkounkoun, renforce le vivre-ensemble et mobilise les communautés autour du développement local." />
             </p>
           </div>
-          <aside className="rounded-lg bg-ajPurple p-7 text-white">
+          <aside className="rounded-lg bg-ajPurple p-7 text-white shadow-card transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0">
             <h2 className="text-2xl font-black">Édition 2026</h2>
             <p className="mt-4 text-lg leading-8">
               Deuxième édition prévue du 11 juillet au 9 août 2026.
@@ -63,7 +63,7 @@ export default function FestivalPage() {
             {festivalParticipants.map((participant) => (
               <li
                 key={participant}
-                className="rounded-lg border border-slate-200 bg-white p-5 text-center font-extrabold text-ajPurple shadow-sm"
+                className="rounded-lg border border-slate-200 bg-white p-5 text-center font-extrabold text-ajPurple shadow-sm transition-[box-shadow,transform] duration-300 hover:-translate-y-1.5 hover:shadow-xl motion-reduce:hover:translate-y-0"
               >
                 {participant}
               </li>

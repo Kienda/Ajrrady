@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { HighlightText } from "@/components/HighlightText";
 import { IconBadge } from "@/components/IconBadge";
 import type { CardItem } from "@/types/site";
@@ -12,10 +12,14 @@ type InfoCardProps = {
 };
 
 export function InfoCard({ item }: InfoCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      variants={cardVariants}
-      className="h-full rounded-xl border border-slate-200 bg-white p-8 shadow-card"
+      variants={shouldReduceMotion ? undefined : cardVariants}
+      whileHover={shouldReduceMotion ? undefined : { y: -6 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="group h-full rounded-xl border border-slate-200 bg-white p-8 shadow-card transition-shadow duration-300 hover:shadow-xl"
     >
       {item.image ? (
         <div className="mb-6 overflow-hidden rounded-3xl bg-slate-100">
@@ -24,7 +28,7 @@ export function InfoCard({ item }: InfoCardProps) {
             alt={item.title}
             width={540}
             height={340}
-            className="h-auto w-full object-cover"
+            className="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
         </div>
       ) : null}

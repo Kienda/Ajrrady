@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 export const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -59,10 +60,12 @@ type MotionProps = {
 };
 
 export function MotionPage({ children, className }: MotionProps) {
+  const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
+      key={pathname}
       initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: easeOut }}
