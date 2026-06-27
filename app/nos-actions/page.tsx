@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { InfoCard } from "@/components/InfoCard";
+import { ProgramCard } from "@/components/ProgramCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StaggerContainer } from "@/components/motion";
@@ -16,18 +16,18 @@ export default function ActionsPage() {
     <>
       <PageHero
         eyebrow="Nos Actions"
-        title="Domaines d’intervention"
-        description="Les programmes stratégiques structurent l’engagement communautaire de l’AJRRADY à Youkounkoun."
+        title="Domaines d'intervention"
+        description="Les programmes stratégiques structurent l'engagement communautaire de l'AJRRADY à Youkounkoun."
       />
-      <section className="bg-ajLight py-16">
+      <section className="bg-ajLight py-20">
         <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
           <SectionHeading
             eyebrow="Actions"
             title="Des interventions simples, utiles et communautaires"
           />
-          <StaggerContainer className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {actionDomains.map((item) => (
-              <InfoCard key={item.title} item={item} />
+              <ProgramCard key={item.title} item={item} />
             ))}
           </StaggerContainer>
         </div>

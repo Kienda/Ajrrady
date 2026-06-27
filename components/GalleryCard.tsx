@@ -11,6 +11,8 @@ type GalleryCardProps = {
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const blurDataURL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAzMiAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB4Mj0iMSIgeTE9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjRjhGNkZDIi8+PHN0b3Agb2Zmc2V0PSIwLjU1IiBzdG9wLWNvbG9yPSIjRURFNUY1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTlGN0VGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNnKSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjI0Ii8+PC9zdmc+";
 
 export function GalleryCard({ image, priority, onOpen }: GalleryCardProps) {
   const hasDetails = Boolean(image.title || image.date);
@@ -36,7 +38,7 @@ export function GalleryCard({ image, priority, onOpen }: GalleryCardProps) {
             height={image.height}
             sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             placeholder="blur"
-            blurDataURL={image.blurDataURL}
+            blurDataURL={image.blurDataURL ?? blurDataURL}
             priority={priority}
             loading={priority ? undefined : "lazy"}
             className="h-auto w-full object-contain transition-transform duration-300 ease-out group-hover:scale-[1.03]"

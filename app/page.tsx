@@ -17,21 +17,41 @@ const domainCardVariants = {
 export default function HomePage() {
   return (
     <>
-      <section className="overflow-hidden bg-[#f1e5f7]">
-        <div className="mx-auto grid min-h-[460px] w-[min(1160px,calc(100%-32px))] items-center gap-6 md:grid-cols-[0.95fr_1.05fr]">
+      <section className="relative isolate overflow-hidden bg-ajPurple">
+        <video
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover brightness-[0.86] contrast-[1.12] saturate-[1.18]"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/Landingpage.jpg"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/76 via-black/42 to-black/12" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
+        <div className="absolute inset-0 -z-10 bg-ajPurple/15" />
 
-          {/* Hero text — stagger on mount */}
-          <HeroContainer className="py-14 md:py-20">
+        <div className="mx-auto flex min-h-[560px] w-[min(1160px,calc(100%-32px))] items-center py-16 md:py-20">
+          <HeroContainer className="max-w-[660px]">
             <HeroItem>
-              <h1 className="max-w-[580px] text-[2.75rem] font-extrabold leading-[1.1] tracking-tight text-ajPurple sm:text-[3.5rem] lg:text-[4.25rem]">
+              <h1
+                className="max-w-[580px] text-[2.75rem] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[3.5rem] lg:text-[4.25rem]"
+                style={{ textShadow: "0 4px 24px rgba(0,0,0,0.45)" }}
+              >
                 Unis pour servir,
                 <br />
                 engagés pour développer
-                <span className="block text-ajGreen">Youkounkoun</span>
+                <span className="block text-[#22C55E]">Youkounkoun</span>
               </h1>
             </HeroItem>
             <HeroItem>
-              <p className="mt-6 max-w-[480px] text-lg leading-[1.8] text-slate-600">
+              <p
+                className="mt-6 max-w-[520px] rounded-2xl border border-white/15 bg-black/35 px-5 py-4 text-lg font-semibold leading-[1.8] text-white shadow-lg backdrop-blur-[2px]"
+                style={{ color: "#fff", textShadow: "0 2px 14px rgba(0,0,0,0.75)" }}
+              >
                 AJRRADY est une organisation communautaire engagée dans la promotion
                 du développement durable à travers l'éducation, la culture, le sport,
                 la santé, l'environnement, la solidarité et la mobilisation de la
@@ -41,43 +61,18 @@ export default function HomePage() {
             <HeroItem>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/nos-actions">Découvrir Nos Actions</ButtonLink>
+                <ButtonLink href="/galerie" variant="light">
+                  Voir la Galerie
+                </ButtonLink>
                 <ButtonLink href="/adhesion" variant="light">
                   Adhérer
                 </ButtonLink>
               </div>
             </HeroItem>
           </HeroContainer>
-
-          {/* Hero image — fade in from right */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.25 }}
-            className="relative min-h-[320px] md:min-h-[460px]"
-            aria-hidden="true"
-          >
-            <div className="absolute inset-x-6 bottom-6 top-14 rounded-full bg-white/55" />
-            <Image
-              src="/LOGO.png"
-              alt=""
-              width={430}
-              height={430}
-              className="absolute bottom-4 left-0 w-[58%] max-w-[390px] opacity-10"
-              priority
-            />
-            <Image
-              src="/SymboleAJRRADY.png"
-              alt=""
-              width={360}
-              height={540}
-              className="absolute bottom-0 right-[8%] max-h-[460px] w-auto object-contain md:right-[4%]"
-              priority
-            />
-          </motion.div>
         </div>
       </section>
 
-      {/* Domain cards — stagger on scroll */}
       <section aria-labelledby="domaines-title" className="bg-white py-8">
         <h2 id="domaines-title" className="sr-only">
           Domaines d'intervention
@@ -105,9 +100,7 @@ export default function HomePage() {
                   className={`mx-auto mb-3 ${index % 2 === 1 ? "text-ajPurple" : ""}`}
                 />
               ) : null}
-              <h3 className="text-[13px] font-bold text-ajPurple">
-                {domain.title}
-              </h3>
+              <h3 className="text-[13px] font-bold text-ajPurple">{domain.title}</h3>
               <p className="mx-auto mt-2 max-w-[150px] text-[13px] leading-[1.6] text-slate-500">
                 {domain.description}
               </p>

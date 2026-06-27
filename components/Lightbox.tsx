@@ -13,6 +13,9 @@ type LightboxProps = {
   onNavigate: (direction: -1 | 1) => void;
 };
 
+const blurDataURL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAzMiAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB4Mj0iMSIgeTE9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjRjhGNkZDIi8+PHN0b3Agb2Zmc2V0PSIwLjU1IiBzdG9wLWNvbG9yPSIjRURFNUY1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTlGN0VGIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNnKSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjI0Ii8+PC9zdmc+";
+
 export function Lightbox({
   images,
   activeIndex,
@@ -109,7 +112,7 @@ export function Lightbox({
                   fill
                   sizes="100vw"
                   placeholder="blur"
-                  blurDataURL={image.blurDataURL}
+                  blurDataURL={image.blurDataURL ?? blurDataURL}
                   className="object-contain"
                 />
               </motion.div>

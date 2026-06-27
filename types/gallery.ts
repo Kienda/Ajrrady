@@ -8,7 +8,7 @@ export type GalleryImage = {
   date?: string;
   album: string;
   albumTitle: string;
-  blurDataURL: string;
+  blurDataURL?: string;
 };
 
 export type GalleryAlbum = {
