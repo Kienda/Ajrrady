@@ -8,6 +8,7 @@ next-start*.log
 Thumbs.db
 .DS_Store
 
+.env
 # Keep full-resolution/raw media outside the deployable app.
 assets/
 gallery-originals/

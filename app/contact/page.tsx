@@ -11,10 +11,11 @@ export const metadata: Metadata = createMetadata({
 });
 
 const fields = [
-  { label: "Nom", name: "Nom" },
-  { label: "Email", name: "Email", type: "email" },
-  { label: "Sujet", name: "Sujet" },
-  { label: "Message", name: "Message", multiline: true },
+  { label: "Nom complet",  name: "nom" },
+  { label: "Email",        name: "email",     type: "email" },
+  { label: "Téléphone",    name: "telephone", type: "tel", required: false },
+  { label: "Sujet",        name: "sujet" },
+  { label: "Message",      name: "message",   multiline: true },
 ];
 
 export default function ContactPage() {
@@ -51,11 +52,7 @@ export default function ContactPage() {
               <ContactTerm label="Localisation">{siteInfo.location}</ContactTerm>
             </dl>
           </div>
-          <ContactForm
-            fields={fields}
-            submitLabel="Envoyer le message"
-            subject="Message depuis le site AJRRADY"
-          />
+          <ContactForm fields={fields} submitLabel="Envoyer le message" />
         </div>
       </section>
     </>

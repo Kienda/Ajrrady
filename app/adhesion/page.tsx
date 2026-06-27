@@ -40,7 +40,6 @@ export default function AdhesionPage() {
           <ContactForm
             fields={fields}
             submitLabel="Envoyer la demande"
-            subject="Demande d'adhésion AJRRADY"
           />
         </div>
       </section>
