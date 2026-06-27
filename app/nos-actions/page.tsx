@@ -23,9 +23,11 @@ export default function ActionsPage() {
         <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
           <SectionHeading
             eyebrow="Actions"
-            title="Des interventions simples, utiles et communautaires"
+            title="Nos secteurs d'intervention"
+            description="Des actions concrètes pour un impact durable à Youkounkoun."
+            centered
           />
-          <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggerContainer className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {actionDomains.map((item) => (
               <ProgramCard key={item.title} item={item} />
             ))}

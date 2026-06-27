@@ -46,44 +46,43 @@ export const homeDomains: CardItem[] = [
     title: "Éducation",
     description: "Soutenir la scolarisation et la formation des jeunes.",
     icon: "education",
-    image: "/illustrations/education.svg",
+    image: "/illustrations/actions/education-3d.webp",
   },
   {
     title: "Culture",
     description: "Promouvoir notre culture et valoriser nos traditions.",
     icon: "culture",
-    image: "/illustrations/culture.svg",
+    image: "/illustrations/actions/culture-3d.webp",
   },
   {
     title: "Sport",
     description: "Encourager la pratique sportive et l'esprit d'équipe.",
     icon: "sport",
-    image: "/illustrations/sport.svg",
+    image: "/illustrations/actions/sport-3d.webp",
   },
   {
     title: "Santé",
-    description:
-      "Promouvoir la santé communautaire, la prévention, l’accès aux soins et les actions de sensibilisation au bénéfice des populations de Youkounkoun.",
+    description: "Promouvoir la santé, la prévention et l'accès aux soins pour tous.",
     icon: "health",
-    image: "/illustrations/health.svg",
+    image: "/illustrations/actions/health-3d.webp",
   },
   {
     title: "Environnement",
     description: "Agir pour un cadre de vie propre et durable.",
     icon: "environment",
-    image: "/illustrations/environment.svg",
+    image: "/illustrations/actions/environment-3d.webp",
   },
   {
     title: "Solidarité",
     description: "Renforcer la cohésion sociale et l'entraide communautaire.",
     icon: "solidarity",
-    image: "/illustrations/solidarity.svg",
+    image: "/illustrations/actions/solidarity-3d.webp",
   },
   {
     title: "Diaspora",
     description: "Mobiliser les fils et filles de Youkounkoun du monde entier.",
     icon: "diaspora",
-    image: "/illustrations/diaspora.svg",
+    image: "/illustrations/actions/diaspora-3d.webp",
   },
 ];
 
@@ -91,7 +90,9 @@ export const actionDomains: CardItem[] = [
   {
     title: "Éducation",
     icon: "education",
-    image: "/illustrations/education.svg",
+    image: "/illustrations/actions/education-3d.webp",
+    description:
+      "Soutenir la scolarisation, la formation des jeunes et l'excellence éducative.",
     items: [
       "Sensibilisation scolaire",
       "Promotion de l'excellence",
@@ -102,7 +103,9 @@ export const actionDomains: CardItem[] = [
   {
     title: "Culture",
     icon: "culture",
-    image: "/illustrations/culture.svg",
+    image: "/illustrations/actions/culture-3d.webp",
+    description:
+      "Promouvoir notre culture, valoriser nos traditions et préserver notre patrimoine.",
     items: [
       "Sauvegarde du patrimoine culturel",
       "Promotion des traditions locales",
@@ -112,7 +115,9 @@ export const actionDomains: CardItem[] = [
   {
     title: "Sport",
     icon: "sport",
-    image: "/illustrations/sport.svg",
+    image: "/illustrations/actions/sport-3d.webp",
+    description:
+      "Encourager la pratique sportive, l'esprit d'équipe et la saine compétition.",
     items: [
       "Organisation de compétitions sportives",
       "Promotion du football et des activités de jeunesse",
@@ -122,9 +127,9 @@ export const actionDomains: CardItem[] = [
   {
     title: "Santé",
     icon: "health",
-    image: "/illustrations/health.svg",
+    image: "/illustrations/actions/health-3d.webp",
     description:
-      "AJRRADY soutient les initiatives de santé publique à travers la sensibilisation, la prévention, les campagnes médicales, l’accompagnement des populations vulnérables et la promotion du bien-être communautaire.",
+      "Promouvoir la santé, la prévention et l'accès aux soins pour tous.",
     items: [
       "Campagnes de sensibilisation",
       "Journées de consultation médicale",
@@ -135,9 +140,11 @@ export const actionDomains: CardItem[] = [
     ],
   },
   {
-    title: "Environnement et développement durable",
+    title: "Environnement",
     icon: "environment",
-    image: "/illustrations/environment.svg",
+    image: "/illustrations/actions/environment-3d.webp",
+    description:
+      "Agir pour un cadre de vie propre, protéger notre environnement et notre avenir.",
     items: [
       "Protection de l'environnement",
       "Assainissement communautaire",
@@ -151,7 +158,9 @@ export const actionDomains: CardItem[] = [
   {
     title: "Solidarité",
     icon: "solidarity",
-    image: "/illustrations/solidarity.svg",
+    image: "/illustrations/actions/solidarity-3d.webp",
+    description:
+      "Renforcer la cohésion sociale, l'entraide communautaire et le vivre-ensemble.",
     items: [
       "Actions de solidarité",
       "Promotion du vivre-ensemble",
@@ -162,7 +171,9 @@ export const actionDomains: CardItem[] = [
   {
     title: "Diaspora",
     icon: "diaspora",
-    image: "/illustrations/diaspora.svg",
+    image: "/illustrations/actions/diaspora-3d.webp",
+    description:
+      "Mobiliser les fils et filles de Youkounkoun partout dans le monde.",
     items: [
       "Mobilisation des ressortissants",
       "Contribution au développement local",

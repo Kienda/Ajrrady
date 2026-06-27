@@ -1,18 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { ButtonLink } from "@/components/ButtonLink";
-import { IconBadge } from "@/components/IconBadge";
 import { HeroContainer, HeroItem, StaggerContainer } from "@/components/motion";
+import { ProgramCard } from "@/components/ProgramCard";
 import { homeDomains } from "@/data/site";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const domainCardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.97 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease } },
-};
 
 export default function HomePage() {
   return (
@@ -73,40 +64,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="domaines-title" className="bg-white py-8">
-        <h2 id="domaines-title" className="sr-only">
-          Domaines d'intervention
-        </h2>
-        <StaggerContainer className="mx-auto grid w-[min(1160px,calc(100%-32px))] divide-y divide-slate-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0 md:grid-cols-3 xl:grid-cols-7">
-          {homeDomains.map((domain, index) => (
-            <motion.article
-              key={domain.title}
-              variants={domainCardVariants}
-              className="domain-card min-h-[185px] px-5 py-7 text-center"
+      <section aria-labelledby="domaines-title" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto w-[min(1160px,calc(100%-32px))]">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-ajGreen">
+              Actions
+            </p>
+            <h2
+              id="domaines-title"
+              className="text-[2.25rem] font-extrabold leading-[1.1] tracking-tight text-ajPurple md:text-[3.25rem]"
             >
-              {domain.image ? (
-                <div className="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-3xl bg-slate-100">
-                  <Image
-                    src={domain.image}
-                    alt={domain.title}
-                    width={64}
-                    height={64}
-                    className="h-full w-full object-contain p-2"
-                  />
-                </div>
-              ) : domain.icon ? (
-                <IconBadge
-                  name={domain.icon}
-                  className={`mx-auto mb-3 ${index % 2 === 1 ? "text-ajPurple" : ""}`}
-                />
-              ) : null}
-              <h3 className="text-[13px] font-bold text-ajPurple">{domain.title}</h3>
-              <p className="mx-auto mt-2 max-w-[150px] text-[13px] leading-[1.6] text-slate-500">
-                {domain.description}
-              </p>
-            </motion.article>
-          ))}
-        </StaggerContainer>
+              Nos secteurs d'intervention
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-[1.8] text-slate-600">
+              Des actions concrètes pour un impact durable à Youkounkoun.
+            </p>
+          </div>
+
+          <StaggerContainer className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {homeDomains.map((domain) => (
+              <ProgramCard key={domain.title} item={domain} />
+            ))}
+          </StaggerContainer>
+
+          <div className="mt-10 flex justify-center">
+            <ButtonLink href="/nos-actions">Découvrir nos secteurs</ButtonLink>
+          </div>
+        </div>
       </section>
     </>
   );
