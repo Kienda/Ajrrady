@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HighlightText } from "@/components/HighlightText";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/motion";
@@ -30,14 +31,10 @@ export default function AboutPage() {
             />
             <div className="space-y-5 text-lg leading-8 text-slate-700">
               <p>
-                AJRRADY accompagne les dynamiques communautaires dans les domaines
-                de l'éducation, de la culture, du sport, de la santé, de la cohésion
-                sociale, de l'environnement et du développement durable.
+                <HighlightText text="AJRRADY accompagne les dynamiques communautaires dans les domaines de l'éducation, de la culture, du sport, de la santé, de la cohésion sociale, de l'environnement et du développement durable." />
               </p>
               <p>
-                L'association renforce les liens de solidarité entre les ressortissants,
-                promeut les valeurs de paix et de vivre-ensemble, et soutient les
-                initiatives engagées en faveur des populations de Youkounkoun.
+                <HighlightText text="L'association renforce les liens de solidarité entre les ressortissants, promeut les valeurs de paix et de vivre-ensemble, et soutient les initiatives engagées en faveur des populations de Youkounkoun." />
               </p>
             </div>
           </SlideIn>
@@ -61,9 +58,7 @@ export default function AboutPage() {
           <FadeUp>
             <div className="max-w-4xl space-y-5 text-lg leading-8 text-slate-700">
               <p>
-                AJRRADY est née de la volonté des fils, filles, résidents et amis de
-                Youkounkoun de contribuer activement au développement socio-économique,
-                culturel et éducatif de leur localité.
+                <HighlightText text="AJRRADY est née de la volonté des fils, filles, résidents et amis de Youkounkoun de contribuer activement au développement socio-économique, culturel et éducatif de leur localité." />
               </p>
               <p>
                 Face aux défis liés à l'éducation, aux infrastructures communautaires,
@@ -84,10 +79,7 @@ export default function AboutPage() {
             <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
               <SectionHeading eyebrow="Mission" title="Mobiliser pour développer" />
               <p className="text-lg leading-8 text-slate-700">
-                AJRRADY est une organisation communautaire engagée dans le
-                développement durable de Youkounkoun à travers l'éducation, la culture,
-                le sport, la santé, l'environnement, la solidarité et la mobilisation
-                de la diaspora.
+                <HighlightText text="AJRRADY est une organisation communautaire engagée dans le développement durable de Youkounkoun à travers l'éducation, la culture, le sport, la santé, l'environnement, la solidarité et la mobilisation de la diaspora." />
               </p>
             </article>
           </StaggerItem>
@@ -95,9 +87,7 @@ export default function AboutPage() {
             <article className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
               <SectionHeading eyebrow="Vision" title="Une communauté forte" />
               <p className="text-lg leading-8 text-slate-700">
-                Faire de Youkounkoun une communauté unie, dynamique, solidaire et
-                prospère, portée par une jeunesse responsable et engagée dans le
-                développement durable.
+                <HighlightText text="Faire de Youkounkoun une communauté unie, dynamique, solidaire et prospère, portée par une jeunesse responsable et engagée dans le développement durable." />
               </p>
             </article>
           </StaggerItem>
@@ -127,7 +117,9 @@ function InfoTerm({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <dt className="text-sm font-black uppercase text-ajPurple">{label}</dt>
-      <dd className="mt-1 leading-7 text-slate-700">{value}</dd>
+      <dd className="mt-1 leading-7 text-slate-700">
+        <HighlightText text={value} />
+      </dd>
     </div>
   );
 }

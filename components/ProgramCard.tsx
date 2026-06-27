@@ -12,6 +12,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { HighlightText } from "@/components/HighlightText";
 import type { CardItem, IconName } from "@/types/site";
 import { cardVariants } from "@/components/motion";
 
@@ -92,7 +93,7 @@ export function ProgramCard({ item }: ProgramCardProps) {
 
         {item.description && (
           <p className="text-[15px] leading-[1.75] text-slate-600">
-            {item.description}
+            <HighlightText text={item.description} />
           </p>
         )}
 
@@ -104,7 +105,7 @@ export function ProgramCard({ item }: ProgramCardProps) {
                 className="flex items-start gap-2.5 text-[14px] leading-snug text-slate-600"
               >
                 <span className="mt-[5px] h-1.5 w-1.5 flex-none rounded-full bg-ajGreen" />
-                {entry}
+                <HighlightText text={entry} />
               </li>
             ))}
             {hiddenItemCount > 0 ? (

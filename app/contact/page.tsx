@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { HighlightText } from "@/components/HighlightText";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { siteInfo } from "@/data/site";
@@ -46,10 +47,12 @@ export default function ContactPage() {
               </ContactTerm>
               <ContactTerm label="Site web">
                 <a className="text-ajPurple hover:text-ajGreen" href={siteInfo.url}>
-                  www.ajrrady.org
+                  <HighlightText text="www.ajrrady.org" />
                 </a>
               </ContactTerm>
-              <ContactTerm label="Localisation">{siteInfo.location}</ContactTerm>
+              <ContactTerm label="Localisation">
+                <HighlightText text={siteInfo.location} />
+              </ContactTerm>
             </dl>
           </div>
           <ContactForm fields={fields} submitLabel="Envoyer le message" />

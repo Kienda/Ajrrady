@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HighlightText } from "@/components/HighlightText";
 import { footerActions, navItems, siteInfo, socialLinks } from "@/data/site";
 
 export function Footer() {
@@ -14,9 +15,11 @@ export function Footer() {
             height={64}
             className="mb-5 h-16 w-16 object-contain"
           />
-          <p className="text-[15px] leading-[1.75] text-white/90">{siteInfo.fullName}</p>
+          <p className="text-[15px] leading-[1.75] text-white/90">
+            <HighlightText text={siteInfo.fullName} tone="dark" />
+          </p>
           <p className="mt-3 text-[15px] font-semibold leading-[1.75] text-white">
-            {siteInfo.slogan}
+            <HighlightText text={siteInfo.slogan} tone="dark" />
           </p>
         </div>
 
@@ -52,10 +55,12 @@ export function Footer() {
           </li>
           <li>
             <a className="footer-link" href={siteInfo.url}>
-              www.ajrrady.org
+              <HighlightText text="www.ajrrady.org" tone="dark" />
             </a>
           </li>
-          <li>{siteInfo.location}</li>
+          <li>
+            <HighlightText text={siteInfo.location} tone="dark" />
+          </li>
         </FooterColumn>
 
         <FooterColumn title="Suivez-nous">
@@ -69,7 +74,7 @@ export function Footer() {
         </FooterColumn>
       </div>
       <div className="mx-auto w-[min(1160px,calc(100%-32px))] border-t border-white/20 py-5 text-center text-[13px] text-white/60">
-        © 2026 AJRRADY. Tous droits réservés.
+        <HighlightText text="© 2026 AJRRADY. Tous droits réservés." tone="dark" />
       </div>
     </footer>
   );

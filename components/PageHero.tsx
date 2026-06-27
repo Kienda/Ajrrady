@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HighlightText } from "@/components/HighlightText";
 
 type PageHeroProps = {
   eyebrow: string;
@@ -15,10 +16,10 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
             {eyebrow}
           </p>
           <h1 className="max-w-4xl text-[2.75rem] font-extrabold leading-[1.1] tracking-tight text-ajPurple md:text-[4rem] lg:text-[5rem]">
-            {title}
+            <HighlightText text={title} />
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-[1.8] text-slate-600">
-            {description}
+            <HighlightText text={description} />
           </p>
         </div>
 

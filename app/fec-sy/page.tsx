@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HighlightText } from "@/components/HighlightText";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { festivalParticipants } from "@/data/site";
@@ -22,9 +23,7 @@ export default function FestivalPage() {
           <div>
             <SectionHeading eyebrow="Festival" title="FEC-SY" />
             <p className="text-lg leading-8 text-slate-700">
-              Le FEC-SY est l’événement phare de l’AJRRADY. Il valorise le
-              patrimoine culturel, sportif et humain de Youkounkoun, renforce le
-              vivre-ensemble et mobilise les communautés autour du développement local.
+              <HighlightText text="Le FEC-SY est l’événement phare de l’AJRRADY. Il valorise le patrimoine culturel, sportif et humain de Youkounkoun, renforce le vivre-ensemble et mobilise les communautés autour du développement local." />
             </p>
           </div>
           <aside className="rounded-lg bg-ajPurple p-7 text-white">

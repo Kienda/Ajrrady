@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { HighlightText } from "@/components/HighlightText";
 import { IconBadge } from "@/components/IconBadge";
 import type { CardItem } from "@/types/site";
 import { cardVariants } from "@/components/motion";
@@ -29,17 +30,19 @@ export function InfoCard({ item }: InfoCardProps) {
       ) : null}
       {item.icon ? <IconBadge name={item.icon} className="mb-5" /> : null}
       <h2 className="text-xl font-bold leading-snug tracking-tight text-ajPurple">
-        {item.title}
+        <HighlightText text={item.title} />
       </h2>
       {item.description ? (
         <p className="mt-3 text-[15px] leading-[1.75] text-slate-600">
-          {item.description}
+          <HighlightText text={item.description} />
         </p>
       ) : null}
       {item.items ? (
         <ul className="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-[1.75] text-slate-600">
           {item.items.map((entry) => (
-            <li key={entry}>{entry}</li>
+            <li key={entry}>
+              <HighlightText text={entry} />
+            </li>
           ))}
         </ul>
       ) : null}

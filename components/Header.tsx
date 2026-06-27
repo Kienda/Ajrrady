@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { HighlightText } from "@/components/HighlightText";
 import { navItems, siteInfo } from "@/data/site";
 
 export function Header() {
@@ -30,10 +31,10 @@ export function Header() {
           />
           <span className="leading-none">
             <span className="block text-[26px] font-extrabold tracking-tight text-ajPurple">
-              AJRRADY
+              <HighlightText text="AJRRADY" />
             </span>
             <span className="block max-w-[170px] text-[9px] font-semibold leading-tight text-ajPurple/70">
-              {siteInfo.fullName}
+              <HighlightText text={siteInfo.fullName} />
             </span>
           </span>
         </Link>

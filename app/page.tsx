@@ -1,6 +1,7 @@
 "use client";
 
 import { ButtonLink } from "@/components/ButtonLink";
+import { HighlightText } from "@/components/HighlightText";
 import { HeroContainer, HeroItem, StaggerContainer } from "@/components/motion";
 import { ProgramCard } from "@/components/ProgramCard";
 import { homeDomains } from "@/data/site";
@@ -35,7 +36,9 @@ export default function HomePage() {
                 Unis pour servir,
                 <br />
                 engagés pour développer
-                <span className="block text-[#22C55E]">Youkounkoun</span>
+                <span className="block">
+                  <HighlightText text="Youkounkoun" tone="hero" />
+                </span>
               </h1>
             </HeroItem>
             <HeroItem>
@@ -43,10 +46,10 @@ export default function HomePage() {
                 className="mt-6 max-w-[520px] rounded-2xl border border-white/15 bg-black/35 px-5 py-4 text-lg font-semibold leading-[1.8] text-white shadow-lg backdrop-blur-[2px]"
                 style={{ color: "#fff", textShadow: "0 2px 14px rgba(0,0,0,0.75)" }}
               >
-                AJRRADY est une organisation communautaire engagée dans la promotion
-                du développement durable à travers l'éducation, la culture, le sport,
-                la santé, l'environnement, la solidarité et la mobilisation de la
-                diaspora.
+                <HighlightText
+                  text="AJRRADY est une organisation communautaire engagée dans la promotion du développement durable à travers l'éducation, la culture, le sport, la santé, l'environnement, la solidarité et la mobilisation de la diaspora."
+                  tone="hero"
+                />
               </p>
             </HeroItem>
             <HeroItem>
@@ -77,7 +80,7 @@ export default function HomePage() {
               Nos secteurs d'intervention
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-[1.8] text-slate-600">
-              Des actions concrètes pour un impact durable à Youkounkoun.
+              <HighlightText text="Des actions concrètes pour un impact durable à Youkounkoun." />
             </p>
           </div>
 

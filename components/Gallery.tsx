@@ -4,6 +4,7 @@ import { Image as ImageIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AlbumFilter } from "@/components/AlbumFilter";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { HighlightText } from "@/components/HighlightText";
 import { Lightbox } from "@/components/Lightbox";
 import type { GalleryAlbum, GalleryImage } from "@/types/gallery";
 
@@ -85,7 +86,7 @@ export function Gallery({ albums }: GalleryProps) {
         <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ajGreen">
-              Galerie AJRRADY
+              <HighlightText text="Galerie AJRRADY" />
             </p>
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ajPurple sm:text-4xl">
               Activités en images
@@ -128,7 +129,7 @@ function GalleryEmptyState() {
           Photos officielles bientôt disponibles
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-slate-600">
-          "La galerie sera régulièrement mise à jour avec les activités d'AJRRADY."
+          <HighlightText text={"\"La galerie sera régulièrement mise à jour avec les activités d'AJRRADY.\""} />
         </p>
       </div>
     </section>
