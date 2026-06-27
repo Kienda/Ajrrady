@@ -11,7 +11,7 @@ import { Resend } from "resend";
 // visitor's address. After verifying ajrrady.org in Resend, change FROM to
 // "AJRRADY <contact@ajrrady.org>" and both emails will deliver correctly.
 const NOTIFY_TO = "ajrrady224@gmail.com";
-const FROM = "AJRRADY <onboarding@resend.dev>";
+const FROM = "AJRRADY <contact@ajrrady.org>";
 
 // ─── In-memory rate limiter ────────────────────────────────────────────────────
 // Resets per cold-start on Vercel, but still stops casual spam within a session.
