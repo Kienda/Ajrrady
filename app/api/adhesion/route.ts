@@ -119,6 +119,155 @@ function adhesionHtml(p: AdhesionParams): string {
 </html>`;
 }
 
+// ─── Sender confirmation template ────────────────────────────────────────────
+
+function confirmationHtml(nom: string, prenom: string): string {
+  const date = new Date().toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nous avons bien reçu votre demande d'adhésion – AJRRADY</title>
+</head>
+<body style="margin:0;padding:0;background:#F4F4F5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#F4F4F5;padding:40px 20px">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px;width:100%;background:#FFFFFF;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.09)">
+
+        <!-- Purple header -->
+        <tr>
+          <td style="background:linear-gradient(135deg,#6A0DAD 0%,#9333EA 100%);padding:48px 48px 40px;text-align:center">
+            <div style="display:inline-block;background:rgba(255,255,255,0.18);border-radius:12px;padding:10px 24px;margin-bottom:20px">
+              <span style="color:#FFFFFF;font-size:30px;font-weight:900;letter-spacing:2px;display:block">AJRRADY</span>
+            </div>
+            <p style="margin:0;color:rgba(255,255,255,0.80);font-size:13px;line-height:1.6">
+              Association des Jeunes Ressortissants, Résidents et Amis<br>
+              pour le Développement de Youkounkoun
+            </p>
+          </td>
+        </tr>
+
+        <!-- Green accent bar -->
+        <tr><td style="background:#0FA958;height:4px;padding:0;font-size:0;line-height:0">&nbsp;</td></tr>
+
+        <!-- Body -->
+        <tr>
+          <td style="padding:48px 48px 36px">
+            <p style="margin:0 0 6px;color:#6A0DAD;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Confirmation de demande</p>
+            <h1 style="margin:0 0 28px;color:#111827;font-size:26px;font-weight:800;line-height:1.3">
+              Nous avons bien reçu<br>votre demande d'adhésion
+            </h1>
+
+            <p style="margin:0 0 16px;color:#374151;font-size:16px;line-height:1.75">
+              Bonjour <strong style="color:#111827">${h(prenom)} ${h(nom)}</strong>,
+            </p>
+
+            <p style="margin:0 0 16px;color:#374151;font-size:16px;line-height:1.75">
+              Nous vous remercions d'avoir manifesté votre intérêt à rejoindre AJRRADY.
+            </p>
+
+            <p style="margin:0 0 36px;color:#374151;font-size:16px;line-height:1.75">
+              Votre demande d'adhésion a bien été reçue. Notre équipe l'examinera et vous répondra dans les meilleurs délais.
+            </p>
+
+            <!-- Summary -->
+            <table width="100%" cellpadding="0" cellspacing="0" role="presentation"
+              style="background:#F8F8FC;border-left:4px solid #6A0DAD;border-radius:0 8px 8px 0;margin-bottom:36px">
+              <tr>
+                <td style="padding:20px 24px">
+                  <p style="margin:0 0 14px;color:#6A0DAD;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">
+                    Résumé de votre demande
+                  </p>
+                  <table cellpadding="0" cellspacing="0" role="presentation" style="font-size:14px;width:100%">
+                    <tr>
+                      <td style="padding:5px 0;color:#6B7280;font-weight:700;width:90px;vertical-align:top">Nom</td>
+                      <td style="padding:5px 0 5px 8px;color:#111827">${h(prenom)} ${h(nom)}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:5px 0;color:#6B7280;font-weight:700;vertical-align:top">Objet</td>
+                      <td style="padding:5px 0 5px 8px;color:#111827">Demande d'adhésion</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:5px 0;color:#6B7280;font-weight:700;vertical-align:top">Date</td>
+                      <td style="padding:5px 0 5px 8px;color:#111827">${date}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 4px;color:#374151;font-size:16px;line-height:1.75">Merci de votre confiance.</p>
+            <p style="margin:0 0 28px;color:#374151;font-size:16px;line-height:1.75">&nbsp;</p>
+
+            <p style="margin:0 0 4px;color:#374151;font-size:15px;line-height:1.6">
+              Association des Jeunes Ressortissants,<br>
+              Résidents et Amis pour le Développement de Youkounkoun
+            </p>
+            <p style="margin:12px 0 0">
+              <a href="https://www.ajrrady.org" style="color:#6A0DAD;font-size:15px;font-weight:600;text-decoration:none">
+                www.ajrrady.org
+              </a>
+            </p>
+          </td>
+        </tr>
+
+        <!-- Divider -->
+        <tr><td style="padding:0 48px"><hr style="border:none;border-top:1px solid #E5E7EB;margin:0"></td></tr>
+
+        <!-- Contact info -->
+        <tr>
+          <td style="padding:28px 48px">
+            <table cellpadding="0" cellspacing="0" role="presentation" style="font-size:14px;color:#374151">
+              <tr>
+                <td style="padding:5px 0">
+                  <span style="color:#6A0DAD;font-weight:700;margin-right:8px">Téléphone</span>
+                  +224 628 70 27 34
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0">
+                  <span style="color:#6A0DAD;font-weight:700;margin-right:8px">Email</span>
+                  <a href="mailto:contact@ajrrady.org" style="color:#6A0DAD;text-decoration:none">contact@ajrrady.org</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:5px 0">
+                  <span style="color:#6A0DAD;font-weight:700;margin-right:8px">Site web</span>
+                  <a href="https://www.ajrrady.org" style="color:#6A0DAD;text-decoration:none">www.ajrrady.org</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background:#F9FAFB;padding:20px 48px;border-top:1px solid #E5E7EB;text-align:center">
+            <p style="margin:0;color:#9CA3AF;font-size:12px;line-height:1.6">
+              &copy; 2026 AJRRADY &middot; Tous droits réservés.
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+      <p style="margin:16px auto 0;max-width:500px;color:#9CA3AF;font-size:11px;text-align:center;line-height:1.6">
+        Cet email a été envoyé automatiquement suite à votre demande sur
+        <a href="https://www.ajrrady.org" style="color:#9CA3AF">ajrrady.org</a>.
+      </p>
+
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
 // ─── Route handler ─────────────────────────────────────────────────────────────
 
 export async function POST(req: Request) {
@@ -192,10 +341,8 @@ export async function POST(req: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  console.log("Sending adhesion notification to:", NOTIFY_TO);
-  console.log("Applicant email:", email);
-
-  const { data, error } = await resend.emails.send({
+  // EMAIL 1 — Organization notification
+  const orgEmail = await resend.emails.send({
     from: FROM,
     to: NOTIFY_TO,
     replyTo: email,
@@ -203,13 +350,30 @@ export async function POST(req: Request) {
     html: adhesionHtml({ nom, prenom, email, telephone, ville, pays, profession, message }),
   });
 
-  console.log("Resend result:", data);
-  console.log("Resend error:", error);
+  console.log("ADHESION ORG EMAIL:", orgEmail);
 
-  if (error) {
-    console.error("[adhesion] Resend failed:", JSON.stringify(error));
+  if (orgEmail.error) {
+    console.error("[adhesion] Org email failed:", JSON.stringify(orgEmail.error));
     return NextResponse.json(
       { error: "Impossible d'envoyer la demande. Veuillez réessayer plus tard." },
+      { status: 500 }
+    );
+  }
+
+  // EMAIL 2 — Sender confirmation (to: email from the form, never hardcoded)
+  const senderEmail = await resend.emails.send({
+    from: FROM,
+    to: email,
+    subject: "Nous avons bien reçu votre demande d'adhésion",
+    html: confirmationHtml(nom, prenom),
+  });
+
+  console.log("ADHESION SENDER EMAIL:", senderEmail);
+
+  if (senderEmail.error) {
+    console.error("[adhesion] Confirmation email failed:", JSON.stringify(senderEmail.error));
+    return NextResponse.json(
+      { error: "Confirmation non envoyée. Veuillez réessayer." },
       { status: 500 }
     );
   }
