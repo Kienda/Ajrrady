@@ -56,7 +56,7 @@ export function heroVideoSchema() {
     name: "AJRRADY – Association pour le Développement de Youkounkoun",
     description:
       "Présentation de l'AJRRADY, association communautaire guinéenne engagée pour le développement durable de Youkounkoun, Koundara, Guinée.",
-    thumbnailUrl: `${BASE}/Landingpage.jpg`,
+    thumbnailUrl: `${BASE}/LOGO.png`,
     uploadDate: "2026-01-01",
     contentUrl: `${BASE}/videos/hero.mp4`,
     embedUrl: BASE,
@@ -103,7 +103,7 @@ export function organizationSchema() {
       "@type": "ImageObject",
       url: `${BASE}/Favicon.png`,
     },
-    image: `${BASE}/Landingpage.jpg`,
+    image: `${BASE}/LOGO.png`,
     description:
       "AJRRADY est une association communautaire guinéenne engagée dans l'éducation, la culture, le sport, la santé, l'environnement, la solidarité et la mobilisation de la diaspora pour le développement de Youkounkoun, Koundara.",
     telephone: siteInfo.phone,
@@ -161,7 +161,7 @@ export function localBusinessSchema() {
     url: BASE,
     telephone: siteInfo.phone,
     email: siteInfo.email,
-    image: `${BASE}/Landingpage.jpg`,
+    image: `${BASE}/LOGO.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Lansanaya Barrage",
@@ -197,7 +197,7 @@ export function sportsEventSchema() {
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     sport: "Football",
     url: `${BASE}/fec-sy`,
-    image: `${BASE}/Landingpage.jpg`,
+    image: `${BASE}/LOGO.png`,
     location: {
       "@type": "Place",
       name: "Stade Lonny Allotène de Youkounkoun",

@@ -44,9 +44,7 @@ export function createMetadata({
       type: "website",
       images: [
         {
-          url: "/Landingpage.jpg",
-          width: 1366,
-          height: 768,
+          url: "/LOGO.png",
           alt: "AJRRADY – Association pour le Développement de Youkounkoun, Guinée",
         },
       ],
@@ -55,7 +53,7 @@ export function createMetadata({
       card: "summary_large_image",
       title: displayTitle,
       description,
-      images: ["/Landingpage.jpg"],
+      images: ["/LOGO.png"],
     },
   };
 }
