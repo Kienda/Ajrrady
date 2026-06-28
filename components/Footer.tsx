@@ -35,7 +35,11 @@ export function Footer() {
 
         <FooterColumn title="Nos actions">
           {footerActions.map((action) => (
-            <li key={action}>{action}</li>
+            <li key={action}>
+              <Link className="footer-link" href="/nos-actions">
+                {action}
+              </Link>
+            </li>
           ))}
         </FooterColumn>
 

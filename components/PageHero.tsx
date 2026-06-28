@@ -30,7 +30,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
         <FloatingElement distance={8} duration={6}>
           <Image
             src="/SymboleAJRRADY.png"
-            alt=""
+            alt="Symbole officiel de l'AJRRADY, association pour le développement de Youkounkoun"
             width={190}
             height={285}
             className="mx-auto max-h-[220px] w-auto object-contain md:ml-auto md:mr-0"

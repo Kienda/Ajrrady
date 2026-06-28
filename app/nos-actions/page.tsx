@@ -3,8 +3,10 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StaggerContainer } from "@/components/motion";
+import { JsonLd } from "@/components/JsonLd";
 import { actionDomains } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = createMetadata({
   title: "Programmes à Youkounkoun, Koundara, Guinée",
@@ -30,6 +32,8 @@ export const metadata: Metadata = createMetadata({
 export default function ActionsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Nos Actions", path: "/nos-actions" }])} />
+      <JsonLd data={webPageSchema({ path: "/nos-actions", name: "Programmes à Youkounkoun, Koundara, Guinée | AJRRADY", description: "Éducation, culture, sport, santé, environnement, solidarité : les 7 domaines d'intervention de l'AJRRADY à Youkounkoun, Koundara, Guinée." })} />
       <PageHero
         eyebrow="Nos Actions"
         title="Domaines d'intervention"

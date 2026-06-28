@@ -3,8 +3,10 @@ import { ContactForm } from "@/components/ContactForm";
 import { HighlightText } from "@/components/HighlightText";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { JsonLd } from "@/components/JsonLd";
 import { siteInfo } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = createMetadata({
   title: "Contactez-nous – Youkounkoun, Guinée",
@@ -34,6 +36,8 @@ const fields = [
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Contact", path: "/contact" }])} />
+      <JsonLd data={webPageSchema({ path: "/contact", name: "Contactez-nous – Youkounkoun, Guinée | AJRRADY", description: "Contactez l'AJRRADY par téléphone, email ou formulaire. Siège à Conakry, zone d'action : Youkounkoun, Koundara, Guinée." })} />
       <PageHero
         eyebrow="Contact"
         title="Contacter AJRRADY"

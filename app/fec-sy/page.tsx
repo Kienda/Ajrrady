@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { festivalParticipants } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
-import { sportsEventSchema } from "@/lib/schemas";
+import { breadcrumbSchema, sportsEventSchema, webPageSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = createMetadata({
   title: "FEC-SY 2026 – Festival de Youkounkoun",
@@ -31,6 +31,8 @@ export default function FestivalPage() {
   return (
     <>
       <JsonLd data={sportsEventSchema()} />
+      <JsonLd data={breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "FEC-SY 2026", path: "/fec-sy" }])} />
+      <JsonLd data={webPageSchema({ path: "/fec-sy", name: "FEC-SY 2026 – Festival de Youkounkoun | AJRRADY", description: "FEC-SY 2026 : festival estival et culturel de Youkounkoun du 11 juillet au 9 août. Tournoi de football et journée culturelle, Koundara." })} />
       <PageHero
         eyebrow="FEC-SY"
         title="Festival Culturel et Sportif de Youkounkoun"

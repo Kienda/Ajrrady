@@ -3,8 +3,10 @@ import { InfoCard } from "@/components/InfoCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AlternatingItem } from "@/components/motion";
+import { JsonLd } from "@/components/JsonLd";
 import { achievements } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = createMetadata({
   title: "Projets & Réalisations à Youkounkoun",
@@ -28,6 +30,8 @@ export const metadata: Metadata = createMetadata({
 export default function AchievementsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Réalisations", path: "/realisations" }])} />
+      <JsonLd data={webPageSchema({ path: "/realisations", name: "Projets & Réalisations à Youkounkoun | AJRRADY", description: "Projets et réalisations de l'AJRRADY à Youkounkoun, Koundara : stade, école, infrastructure communautaire et développement local." })} />
       <PageHero
         eyebrow="Réalisations"
         title="Actions documentées"

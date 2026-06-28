@@ -13,7 +13,7 @@ import {
 import { ProgramCard } from "@/components/ProgramCard";
 import { homeDomains } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
-import { localBusinessSchema } from "@/lib/schemas";
+import { heroVideoSchema, localBusinessSchema, webPageSchema } from "@/lib/schemas";
 import { WelcomePopup } from "@/components/WelcomePopup";
 
 export const metadata: Metadata = createMetadata({
@@ -43,6 +43,15 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessSchema()} />
+      <JsonLd data={heroVideoSchema()} />
+      <JsonLd
+        data={webPageSchema({
+          path: "/",
+          name: "AJRRADY | Association pour le Développement de Youkounkoun",
+          description:
+            "AJRRADY, association guinéenne pour le développement de Youkounkoun, Koundara. Éducation, culture, sport, santé, environnement et solidarité.",
+        })}
+      />
       <WelcomePopup />
 
       <section className="relative isolate overflow-hidden bg-ajPurple">

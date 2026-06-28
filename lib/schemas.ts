@@ -2,8 +2,94 @@ import { siteInfo } from "@/data/site";
 
 const BASE = siteInfo.url;
 
-// Approximate GPS coordinates for Youkounkoun
 const YOUKOUNKOUN = { latitude: 12.5333, longitude: -13.1167 };
+
+// ── Breadcrumb ────────────────────────────────────────────────────────────
+
+type BreadcrumbItem = { name: string; path: string };
+
+export function breadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${BASE}${item.path}`,
+    })),
+  };
+}
+
+// ── WebPage ───────────────────────────────────────────────────────────────
+
+export function webPageSchema({
+  path,
+  name,
+  description,
+}: {
+  path: string;
+  name: string;
+  description: string;
+}) {
+  const url = `${BASE}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: "fr",
+    isPartOf: { "@id": `${BASE}/#website` },
+    publisher: { "@id": `${BASE}/#organization` },
+  };
+}
+
+// ── VideoObject ───────────────────────────────────────────────────────────
+
+export function heroVideoSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${BASE}/#hero-video`,
+    name: "AJRRADY – Association pour le Développement de Youkounkoun",
+    description:
+      "Présentation de l'AJRRADY, association communautaire guinéenne engagée pour le développement durable de Youkounkoun, Koundara, Guinée.",
+    thumbnailUrl: `${BASE}/Landingpage.jpg`,
+    uploadDate: "2026-01-01",
+    contentUrl: `${BASE}/videos/hero.mp4`,
+    embedUrl: BASE,
+    inLanguage: "fr",
+    publisher: { "@id": `${BASE}/#organization` },
+  };
+}
+
+// ── ImageGallery ──────────────────────────────────────────────────────────
+
+export function imageGallerySchema(
+  images: Array<{ src: string; alt: string; width: number; height: number }>,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "@id": `${BASE}/galerie#gallery`,
+    name: "Galerie AJRRADY – Festival FEC-SY et activités à Youkounkoun",
+    description:
+      "Photos officielles des activités de l'AJRRADY à Youkounkoun, Koundara : Festival FEC-SY, actions éducatives et événements communautaires.",
+    url: `${BASE}/galerie`,
+    publisher: { "@id": `${BASE}/#organization` },
+    associatedMedia: images.slice(0, 12).map((img) => ({
+      "@type": "ImageObject",
+      url: `${BASE}${img.src}`,
+      name: img.alt,
+      description: img.alt,
+      width: { "@type": "QuantitativeValue", value: img.width },
+      height: { "@type": "QuantitativeValue", value: img.height },
+      encodingFormat: "image/webp",
+    })),
+  };
+}
 
 export function organizationSchema() {
   return {

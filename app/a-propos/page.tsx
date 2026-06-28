@@ -3,7 +3,9 @@ import { HighlightText } from "@/components/HighlightText";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from "@/components/motion";
+import { JsonLd } from "@/components/JsonLd";
 import { createMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schemas";
 import { siteInfo, values } from "@/data/site";
 
 export const metadata: Metadata = createMetadata({
@@ -28,6 +30,8 @@ export const metadata: Metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "À Propos", path: "/a-propos" }])} />
+      <JsonLd data={webPageSchema({ path: "/a-propos", name: "Notre Association – AJRRADY Youkounkoun | AJRRADY", description: "Découvrez la mission, la vision et les valeurs de l'AJRRADY, association guinéenne engagée pour Youkounkoun, Koundara, Guinée." })} />
       <PageHero
         eyebrow="À Propos"
         title="AJRRADY"

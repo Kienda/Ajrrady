@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/SectionHeading";
+import { JsonLd } from "@/components/JsonLd";
 import { createMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schemas";
 
 export const metadata: Metadata = createMetadata({
   title: "Adhésion – Rejoindre l'association",
@@ -36,6 +38,8 @@ const fields = [
 export default function AdhesionPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Adhésion", path: "/adhesion" }])} />
+      <JsonLd data={webPageSchema({ path: "/adhesion", name: "Adhésion – Rejoindre l'association | AJRRADY", description: "Rejoignez l'AJRRADY et contribuez au développement de Youkounkoun. Formulaire d'adhésion en ligne pour cette association guinéenne." })} />
       <PageHero
         eyebrow="Adhésion"
         title="Rejoindre AJRRADY"
